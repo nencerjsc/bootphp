@@ -26,10 +26,6 @@ class ServiceProvider extends  \Illuminate\Support\ServiceProvider{
 
     private function _registerModule($moduleName) {
         $modulePath = __DIR__ . "/$moduleName/";
-        // boot languages
-        if (File::exists($modulePath . "Languages")) {
-            $this->loadTranslationsFrom($modulePath . "Languages", $moduleName);
-        }
 
         // boot migration
         if (File::exists($modulePath . "Migrations")) {
