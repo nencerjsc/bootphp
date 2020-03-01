@@ -17,6 +17,11 @@ class ServiceProvider extends  \Illuminate\Support\ServiceProvider{
         if(file_exists(__DIR__.'/Helpers.php')) {
             include __DIR__.'/Helpers.php';
         }
+
+        Blade::directive('themeinclude', function ($string_params){
+            $html = '{!! themeinclude('.$string_params.') !!}';
+            return $html;
+        });
     }
 
     private function _registerModule($moduleName) {

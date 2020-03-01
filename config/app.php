@@ -15,6 +15,7 @@ return [
 
     'name' => env('APP_NAME', 'Laravel'),
     'backendRoute' => env('BACKEND_URI','adminnc'),
+    'theme' => env('THEME','default'),
 
     /*
     |--------------------------------------------------------------------------
