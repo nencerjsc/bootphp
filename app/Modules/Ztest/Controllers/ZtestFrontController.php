@@ -6,14 +6,7 @@ use App\Modules\Ztest\Models\Ztest;
 
 class ZtestFrontController extends FrontendController
 {
-
-    public function nghia(){
-
-        $model = new Ztest;
-
-        dd($model);
-
-
+    public function test(){
+        echo 'test';
     }
-
 }

@@ -1,10 +1,10 @@
 <?php
 
-namespace App\Modules\Ztest\Models;
+namespace App\Modules\User\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Ztest extends Model
+class User extends Model
 {
     /**
      * The attributes that are mass assignable.
