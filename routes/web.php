@@ -46,3 +46,7 @@ Route::group(['module'=>'Ztest', 'namespace' => '\App\Modules\Ztest\Controllers'
     });
 });
 
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');

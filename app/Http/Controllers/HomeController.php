@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Services\Cart\Facades\Cart;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -23,6 +24,11 @@ class HomeController extends Controller
      */
     public function index()
     {
+        Cart::add('293ad1233423', 'Product 1', 1, 9.99, 550);
+        dd(Cart::content());
+        //\Cart::add('293ad', 'Product 1', 1, 9.99, 550);
+        //\Cart::store('username');
+//dd(\Cart::content());
         return view('home');
     }
 }
