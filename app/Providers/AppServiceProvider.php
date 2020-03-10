@@ -24,6 +24,8 @@ class AppServiceProvider extends ServiceProvider
                 $this->app->make(SessionManager::class)->forget('cart');
             }
         });
+
+        $this->app->register(NestedSetServiceProvider::class);
     }
 
     /**
