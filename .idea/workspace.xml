@@ -2,19 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="a73d12e2-e0d1-4c21-b027-4e10c52b72df" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/Modules/System/Views/backend/layouts/master.blade.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/Modules/System/Views/backend/partials/footer.blade.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/Modules/System/Views/backend/partials/header.blade.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/Modules/System/Views/backend/partials/righttoggle.blade.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/Modules/System/Views/backend/partials/sidebar.blade.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/resources/lang/en/backend.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Modules/System/Controllers/BackendController.php" afterPath="$PROJECT_DIR$/app/Modules/System/Controllers/BackendController.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/composer.json" afterPath="$PROJECT_DIR$/composer.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/composer.lock" afterPath="$PROJECT_DIR$/composer.lock" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/config/app.php" afterPath="$PROJECT_DIR$/config/app.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/routes/web.php" afterPath="$PROJECT_DIR$/routes/web.php" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/app/Modules/System/Views/admins/dashboard.blade.php" afterPath="$PROJECT_DIR$/app/Modules/System/Views/backend/pages/dashboard.blade.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Modules/System/Views/backend/layouts/master.blade.php" afterPath="$PROJECT_DIR$/app/Modules/System/Views/backend/layouts/master.blade.php" />
     </list>
     <ignored path="laravel.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -70,8 +59,8 @@
       <file leaf-file-name="master.blade.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/Modules/System/Views/backend/layouts/master.blade.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="55">
-              <caret line="21" column="25" selection-start-line="21" selection-start-column="25" selection-end-line="21" selection-end-column="25" />
+            <state relative-caret-position="187">
+              <caret line="11" column="24" selection-start-line="11" selection-start-column="24" selection-end-line="11" selection-end-column="24" />
               <folding />
             </state>
           </provider>
@@ -80,8 +69,8 @@
       <file leaf-file-name="index2.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/vendor/almasaeed2010/adminlte/index2.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="21">
-              <caret line="1568" column="0" selection-start-line="1568" selection-start-column="0" selection-end-line="1591" selection-end-column="51" />
+            <state relative-caret-position="514">
+              <caret line="1586" column="0" selection-start-line="1586" selection-start-column="0" selection-end-line="1586" selection-end-column="68" />
               <folding />
             </state>
           </provider>
@@ -168,13 +157,13 @@
         <option value="$PROJECT_DIR$/app/Modules/System/Controllers/BackendController.php" />
         <option value="$PROJECT_DIR$/app/Modules/System/Views/backend/partials/rightcontrol.blade.php" />
         <option value="$PROJECT_DIR$/composer.json" />
-        <option value="$PROJECT_DIR$/vendor/almasaeed2010/adminlte/index2.html" />
         <option value="$PROJECT_DIR$/app/Modules/System/Views/backend/partials/header.blade.php" />
         <option value="$PROJECT_DIR$/app/Modules/System/Views/backend/partials/sidebar.blade.php" />
         <option value="$PROJECT_DIR$/app/Modules/System/Views/backend/partials/footer.blade.php" />
         <option value="$PROJECT_DIR$/app/Modules/System/Views/backend/partials/righttoggle.blade.php" />
         <option value="$PROJECT_DIR$/app/Modules/System/Views/backend/partials/breadcrumbs.blade.php" />
         <option value="$PROJECT_DIR$/app/Modules/System/Views/backend/pages/dashboard.blade.php" />
+        <option value="$PROJECT_DIR$/vendor/almasaeed2010/adminlte/index2.html" />
         <option value="$PROJECT_DIR$/app/Modules/System/Views/backend/layouts/master.blade.php" />
       </list>
     </option>
@@ -526,12 +515,12 @@
       <workItem from="1586405176024" duration="879000" />
       <workItem from="1586407302945" duration="23000" />
       <workItem from="1586423674554" duration="9740000" />
-      <workItem from="1586491644392" duration="3558000" />
+      <workItem from="1586491644392" duration="4058000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="42877000" />
+    <option name="totallyTimeSpent" value="43377000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -884,14 +873,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/vendor/almasaeed2010/adminlte/index2.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="21">
-          <caret line="1568" column="0" selection-start-line="1568" selection-start-column="0" selection-end-line="1591" selection-end-column="51" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/Modules/System/Views/backend/partials/righttoggle.blade.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="34">
@@ -924,10 +905,18 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/vendor/almasaeed2010/adminlte/index2.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="514">
+          <caret line="1586" column="0" selection-start-line="1586" selection-start-column="0" selection-end-line="1586" selection-end-column="68" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/app/Modules/System/Views/backend/layouts/master.blade.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="55">
-          <caret line="21" column="25" selection-start-line="21" selection-start-column="25" selection-end-line="21" selection-end-column="25" />
+        <state relative-caret-position="187">
+          <caret line="11" column="24" selection-start-line="11" selection-start-column="24" selection-end-line="11" selection-end-column="24" />
           <folding />
         </state>
       </provider>
