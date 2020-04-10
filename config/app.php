@@ -13,7 +13,7 @@ return [
     |
     */
 
-    'name' => env('APP_NAME', 'Laravel'),
+    'name' => env('APP_NAME', 'NCS'),
     'backendRoute' => env('BACKEND_URI','adminnc'),
     'theme' => env('THEME','default'),
 

@@ -8,7 +8,7 @@ Route::get('/home', 'HomeController@index');
 Route::group(['module'=>'System', 'namespace' => '\App\Modules\System\Controllers'], function () use ($admin_prefix) {
     //Backend
     Route::group(['prefix'=>$admin_prefix, 'middleware' =>['auth','role:BACKEND']], function () {
-        Route::get('/', 'BackendController@index');
+        Route::get('/', 'BackendController@dashboard');
         Route::resource('roles','RoleController');
         Route::resource('permissions','PermissionController');
     });

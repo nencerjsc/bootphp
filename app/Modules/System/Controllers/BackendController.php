@@ -16,7 +16,7 @@ class BackendController extends Controller
 {
     public function __construct()
     {
-
+        $this->middleware('auth');
     }
 
     /**
@@ -24,11 +24,11 @@ class BackendController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index(Request $request)
+    public function dashboard(Request $request)
     {
+        $title = __('backend.dashboard');
 
-        $title = 'Bảng quản trị';
-        return view('System::admins.dashboard', compact('title'));
+        return view('System::backend.pages.dashboard', compact('title'));
     }
 
 }
