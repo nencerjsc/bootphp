@@ -37,7 +37,7 @@ export default class FilterItem {
      */
     filterOut(cssOptions: Dictionary): void;
     /**
-     * Helper method to calculate the animation delay for a given grid item
+     * Helpers method to calculate the animation delay for a given grid item
      * @param delay in ms
      * @param delayMode can be 'alternate' or 'progressive'
      */
@@ -64,7 +64,7 @@ export default class FilterItem {
      */
     getSortAttribute(sortAttribute: string): string | number;
     /**
-     * Helper method for the search method of Filterizr
+     * Helpers method for the search method of Filterizr
      * @return {String} innerText of the FilterItem in lowercase
      */
     private getContentsLowercase;

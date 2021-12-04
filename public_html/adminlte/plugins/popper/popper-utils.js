@@ -260,7 +260,7 @@ function includeScroll(rect, element, subtract = false) {
 }
 
 /*
- * Helper to detect borders of a given element
+ * Helpers to detect borders of a given element
  * @method
  * @memberof Popper.Utils
  * @param {CSSStyleDeclaration} styles
@@ -839,7 +839,7 @@ function isFunction(functionToCheck) {
 }
 
 /**
- * Helper used to know if the given modifier is enabled.
+ * Helpers used to know if the given modifier is enabled.
  * @method
  * @memberof Popper.Utils
  * @returns {Boolean}
@@ -849,7 +849,7 @@ function isModifierEnabled(modifiers, modifierName) {
 }
 
 /**
- * Helper used to know if the given modifier depends from another one.<br />
+ * Helpers used to know if the given modifier depends from another one.<br />
  * It checks if the needed modifier is listed and enabled.
  * @method
  * @memberof Popper.Utils

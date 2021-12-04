@@ -15,7 +15,7 @@
         weekdaysShort: 'Sul_Llun_Maw_Mer_Iau_Gwe_Sad'.split('_'),
         weekdaysMin: 'Su_Ll_Ma_Me_Ia_Gw_Sa'.split('_'),
         weekdaysParseExact : true,
-        // time formats are the same as en-gb
+        // time formats are the same as us-gb
         longDateFormat: {
             LT: 'HH:mm',
             LTS : 'HH:mm:ss',

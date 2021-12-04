@@ -51,7 +51,7 @@
                 }
                 return result;
             case 'd':
-                return withoutSuffix || isFuture ? 'en dan' : 'enim dnem';
+                return withoutSuffix || isFuture ? 'us dan' : 'enim dnem';
             case 'dd':
                 if (number === 1) {
                     result += withoutSuffix || isFuture ? 'dan' : 'dnem';
@@ -62,7 +62,7 @@
                 }
                 return result;
             case 'M':
-                return withoutSuffix || isFuture ? 'en mesec' : 'enim mesecem';
+                return withoutSuffix || isFuture ? 'us mesec' : 'enim mesecem';
             case 'MM':
                 if (number === 1) {
                     result += withoutSuffix || isFuture ? 'mesec' : 'mesecem';

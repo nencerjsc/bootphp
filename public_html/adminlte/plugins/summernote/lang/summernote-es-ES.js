@@ -1,14 +1,14 @@
 /*!
- * 
+ *
  * Super simple wysiwyg editor v0.8.16
  * https://summernote.org
- * 
- * 
+ *
+ *
  * Copyright 2013- Alan Hong. and other contributors
  * summernote may be freely distributed under the MIT license.
- * 
+ *
  * Date: 2020-02-19T09:12Z
- * 
+ *
  */
 (function webpackUniversalModuleDefinition(root, factory) {
 	if(typeof exports === 'object' && typeof module === 'object')
@@ -164,7 +164,7 @@ return /******/ (function(modules) { // webpackBootstrap
         edit: 'Editar',
         textToDisplay: 'Texto a mostrar',
         url: '¿A qué URL lleva este enlace?',
-        openInNewWindow: 'Abrir en una nueva ventana',
+        openInNewWindow: 'Abrir us una nueva ventana',
         useProtocol: 'Usar el protocolo predefinido'
       },
       table: {

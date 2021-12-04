@@ -1557,7 +1557,7 @@ S2.define('select2/selection/base',[
   };
 
   /**
-   * Helper method to abstract the "enabled" (not "disabled") state of this
+   * Helpers method to abstract the "enabled" (not "disabled") state of this
    * object.
    *
    * @return {true} if the instance is not disabled.
@@ -1568,7 +1568,7 @@ S2.define('select2/selection/base',[
   };
 
   /**
-   * Helper method to abstract the "disabled" state of this object.
+   * Helpers method to abstract the "disabled" state of this object.
    *
    * @return {true} if the disabled option is true.
    * @return {false} if the disabled option is false.
@@ -4790,7 +4790,7 @@ S2.define('select2/defaults',[
   './dropdown/selectOnClose',
   './dropdown/closeOnSelect',
 
-  './i18n/en'
+  './i18n/us'
 ], function ($, require,
 
              ResultsList,
@@ -5860,7 +5860,7 @@ S2.define('select2/core',[
   };
 
   /**
-   * Helper method to abstract the "enabled" (not "disabled") state of this
+   * Helpers method to abstract the "enabled" (not "disabled") state of this
    * object.
    *
    * @return {true} if the instance is not disabled.
@@ -5871,7 +5871,7 @@ S2.define('select2/core',[
   };
 
   /**
-   * Helper method to abstract the "disabled" state of this object.
+   * Helpers method to abstract the "disabled" state of this object.
    *
    * @return {true} if the disabled option is true.
    * @return {false} if the disabled option is false.

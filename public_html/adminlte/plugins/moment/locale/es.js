@@ -63,7 +63,7 @@
             sameElse : 'L'
         },
         relativeTime : {
-            future : 'en %s',
+            future : 'us %s',
             past : 'hace %s',
             s : 'unos segundos',
             ss : '%d segundos',

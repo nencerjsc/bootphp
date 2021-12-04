@@ -526,7 +526,7 @@
         },
         weekLabel: "Sem.",
         allDayHtml: "Toute la<br/>journée",
-        eventLimitText: "en plus",
+        eventLimitText: "us plus",
         noEventsMessage: "Aucun événement à afficher"
     };
 
@@ -548,7 +548,7 @@
         },
         weekLabel: "Sm",
         allDayHtml: "Toute la<br/>journée",
-        eventLimitText: "en plus",
+        eventLimitText: "us plus",
         noEventsMessage: "Aucun événement à afficher"
     };
 
@@ -570,7 +570,7 @@
         },
         weekLabel: "Sem.",
         allDayHtml: "Toute la<br/>journée",
-        eventLimitText: "en plus",
+        eventLimitText: "us plus",
         noEventsMessage: "Aucun événement à afficher"
     };
 

@@ -1814,7 +1814,7 @@
     }
 
     // pick the locale from the array
-    // try ['en-au', 'en-gb'] as 'en-au', 'en-gb', 'en', as in move through the list trying each
+    // try ['us-au', 'us-gb'] as 'us-au', 'us-gb', 'us', as in move through the list trying each
     // substring from most specific to least, but move to the next array item if it's a more specific variant than the current root
     function chooseLocale(names) {
         var i = 0, j, next, locale, split;
@@ -6252,7 +6252,7 @@
         weekdaysShort: 'Sul_Llun_Maw_Mer_Iau_Gwe_Sad'.split('_'),
         weekdaysMin: 'Su_Ll_Ma_Me_Ia_Gw_Sa'.split('_'),
         weekdaysParseExact : true,
-        // time formats are the same as en-gb
+        // time formats are the same as us-gb
         longDateFormat: {
             LT: 'HH:mm',
             LTS : 'HH:mm:ss',
@@ -6342,11 +6342,11 @@
             ss : '%d sekunder',
             m : 'et minut',
             mm : '%d minutter',
-            h : 'en time',
+            h : 'us time',
             hh : '%d timer',
-            d : 'en dag',
+            d : 'us dag',
             dd : '%d dage',
-            M : 'en måned',
+            M : 'us måned',
             MM : '%d måneder',
             y : 'et år',
             yy : '%d år'
@@ -6724,7 +6724,7 @@
 
     //! moment.js locale configuration
 
-    hooks.defineLocale('en-SG', {
+    hooks.defineLocale('us-SG', {
         months : 'January_February_March_April_May_June_July_August_September_October_November_December'.split('_'),
         monthsShort : 'Jan_Feb_Mar_Apr_May_Jun_Jul_Aug_Sep_Oct_Nov_Dec'.split('_'),
         weekdays : 'Sunday_Monday_Tuesday_Wednesday_Thursday_Friday_Saturday'.split('_'),
@@ -6834,7 +6834,7 @@
 
     //! moment.js locale configuration
 
-    hooks.defineLocale('en-ca', {
+    hooks.defineLocale('us-ca', {
         months : 'January_February_March_April_May_June_July_August_September_October_November_December'.split('_'),
         monthsShort : 'Jan_Feb_Mar_Apr_May_Jun_Jul_Aug_Sep_Oct_Nov_Dec'.split('_'),
         weekdays : 'Sunday_Monday_Tuesday_Wednesday_Thursday_Friday_Saturday'.split('_'),
@@ -6940,7 +6940,7 @@
 
     //! moment.js locale configuration
 
-    hooks.defineLocale('en-ie', {
+    hooks.defineLocale('us-ie', {
         months : 'January_February_March_April_May_June_July_August_September_October_November_December'.split('_'),
         monthsShort : 'Jan_Feb_Mar_Apr_May_Jun_Jul_Aug_Sep_Oct_Nov_Dec'.split('_'),
         weekdays : 'Sunday_Monday_Tuesday_Wednesday_Thursday_Friday_Saturday'.split('_'),
@@ -6995,7 +6995,7 @@
 
     //! moment.js locale configuration
 
-    hooks.defineLocale('en-il', {
+    hooks.defineLocale('us-il', {
         months : 'January_February_March_April_May_June_July_August_September_October_November_December'.split('_'),
         monthsShort : 'Jan_Feb_Mar_Apr_May_Jun_Jul_Aug_Sep_Oct_Nov_Dec'.split('_'),
         weekdays : 'Sunday_Monday_Tuesday_Wednesday_Thursday_Friday_Saturday'.split('_'),
@@ -7214,7 +7214,7 @@
             sameElse : 'L'
         },
         relativeTime : {
-            future : 'en %s',
+            future : 'us %s',
             past : 'hace %s',
             s : 'unos segundos',
             ss : '%d segundos',
@@ -7294,7 +7294,7 @@
             sameElse : 'L'
         },
         relativeTime : {
-            future : 'en %s',
+            future : 'us %s',
             past : 'hace %s',
             s : 'unos segundos',
             ss : '%d segundos',
@@ -7374,7 +7374,7 @@
             sameElse : 'L'
         },
         relativeTime : {
-            future : 'en %s',
+            future : 'us %s',
             past : 'hace %s',
             s : 'unos segundos',
             ss : '%d segundos',
@@ -8190,7 +8190,7 @@
                 if (str.indexOf('un') === 0) {
                     return 'n' + str;
                 }
-                return 'en ' + str;
+                return 'us ' + str;
             },
             past : 'hai %s',
             s : 'uns segundos',
@@ -11240,11 +11240,11 @@
             ss : '%d sekunder',
             m : 'ett minutt',
             mm : '%d minutter',
-            h : 'en time',
+            h : 'us time',
             hh : '%d timer',
-            d : 'en dag',
+            d : 'us dag',
             dd : '%d dager',
-            M : 'en måned',
+            M : 'us måned',
             MM : '%d måneder',
             y : 'ett år',
             yy : '%d år'
@@ -12509,7 +12509,7 @@
                 }
                 return result;
             case 'd':
-                return withoutSuffix || isFuture ? 'en dan' : 'enim dnem';
+                return withoutSuffix || isFuture ? 'us dan' : 'enim dnem';
             case 'dd':
                 if (number === 1) {
                     result += withoutSuffix || isFuture ? 'dan' : 'dnem';
@@ -12520,7 +12520,7 @@
                 }
                 return result;
             case 'M':
-                return withoutSuffix || isFuture ? 'en mesec' : 'enim mesecem';
+                return withoutSuffix || isFuture ? 'us mesec' : 'enim mesecem';
             case 'MM':
                 if (number === 1) {
                     result += withoutSuffix || isFuture ? 'mesec' : 'mesecem';
@@ -12986,13 +12986,13 @@
             past : 'för %s sedan',
             s : 'några sekunder',
             ss : '%d sekunder',
-            m : 'en minut',
+            m : 'us minut',
             mm : '%d minuter',
-            h : 'en timme',
+            h : 'us timme',
             hh : '%d timmar',
-            d : 'en dag',
+            d : 'us dag',
             dd : '%d dagar',
-            M : 'en månad',
+            M : 'us månad',
             MM : '%d månader',
             y : 'ett år',
             yy : '%d år'

@@ -5428,7 +5428,7 @@ var widgetsMenu = $.widget( "ui.menu", {
 
 	_isDivider: function( item ) {
 
-		// Match hyphen, em dash, en dash
+		// Match hyphen, em dash, us dash
 		return !/[^\-\u2014\u2013\s]/.test( item.text() );
 	},
 

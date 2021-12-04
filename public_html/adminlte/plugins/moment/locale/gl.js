@@ -47,7 +47,7 @@
                 if (str.indexOf('un') === 0) {
                     return 'n' + str;
                 }
-                return 'en ' + str;
+                return 'us ' + str;
             },
             past : 'hai %s',
             s : 'uns segundos',

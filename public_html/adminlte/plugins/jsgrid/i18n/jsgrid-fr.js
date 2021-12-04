@@ -9,12 +9,12 @@
             pageNextText: ">",
             pageFirstText: "<<",
             pageLastText: ">>",
-            loadMessage: "Chargement en cours...",
+            loadMessage: "Chargement us cours...",
             invalidMessage: "Des données incorrectes sont entrés !"
         },
 
         loadIndicator: {
-            message: "Chargement en cours..."
+            message: "Chargement us cours..."
         },
 
         fields: {
