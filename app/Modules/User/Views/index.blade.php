@@ -81,6 +81,7 @@
                             </div>
                             <!-- *** End list button & form inline *** -->
                         </div>
+                        {!! Form::open(array('route' => 'users.action.post','method'=>'post')) !!}
                         <div class="card-body">
                             <div class="card-title">
                                 List User
@@ -122,12 +123,12 @@
                                                 @endif
                                             </td>
                                             <td>
-                                                <a class="btn btn-info"
-                                                   href="{{ route('users.show',$user->id) }}">Show</a>
+{{--                                                <a class="btn btn-info"--}}
+{{--                                                   href="{{ route('users.show',$user->id) }}">Show</a>--}}
                                                 <a class="btn btn-primary" href="{{ route('users.edit',$user->id) }}">Edit</a>
-                                                {!! Form::open(['method' => 'DELETE','route' => ['users.destroy', $user->id],'style'=>'display:inline']) !!}
-                                                {!! Form::submit('Delete', ['class' => 'btn btn-danger']) !!}
-                                                {!! Form::close() !!}
+                                                <a href="#" name="{{ $user->name }}" link="{{ route("users.destroy",$user->id) }}"
+                                                   class="deleteClick red id-btn-dialog2" data-toggle="modal"
+                                                   data-target="#deleteModal"><span class="btn btn-danger">Delete</span></a>
                                             </td>
                                         </tr>
                                     @endforeach
@@ -164,11 +165,47 @@
                                     </div>
                                 </div>
                         </div>
+                        {!! Form::close() !!}
                     </div>
                 </div>
             </div>
         </div>
         <!-- *** End table *** -->
     </div>
+    <!-- Delete form -->
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $(".deleteClick").click(function () {
+                var link = $(this).attr('link');
+                var name = $(this).attr('name');
+                $("#deleteForm").attr('action', link);
+                $("#deleteMes").html("Delete : " + name + " ?");
+            });
+        });
+    </script>
+    <div class="modal fade" id="deleteModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+         aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <form id="deleteForm" action="" method="POST">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Delete User</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div id="deleteMes" class="modal-body">
 
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        <button type="submit" class="btn btn-primary">Submit</button>
+                    </div>
+                    <input type="hidden" name="_method" value="delete"/>
+                    {{ csrf_field() }}
+                </form>
+            </div>
+        </div>
+    </div>
+    <!-- End Delete form-->
 @endsection

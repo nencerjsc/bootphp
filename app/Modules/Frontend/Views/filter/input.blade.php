@@ -1,0 +1,1 @@
+<input class="form-control" value="@if(request()->input("$col")){{ trim(request()->input("$col"))}}@endif" name="{{$col}}" placeholder="{{ __('order.'.$col) }}">

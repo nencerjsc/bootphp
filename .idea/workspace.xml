@@ -128,24 +128,24 @@
   <component name="ProjectId" id="21nd3NMkSufq9vipsM621wXL0Su" />
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/app/Modules" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="settings.editor.selected.configurable" value="preferences.sourceCode" />
     <property name="settings.editor.splitter.proportion" value="0.2" />
   </component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\OSPanel\domains\laracode\app\Modules" />
+      <recent name="C:\OSPanel\domains\laracode\app\Modules\System\Views" />
+      <recent name="C:\OSPanel\domains\laracode\app\Modules\System\Helper" />
+      <recent name="C:\WEBSITE\OSPanel\domains\laravel" />
+      <recent name="D:\WEBSITE\OSPanel\domains\laravel\resources\lang\en" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="D:\WEBSITE\OSPanel\domains\laravel\app\Modules\System\Views\backend\pages" />
       <recent name="D:\WEBSITE\OSPanel\domains\laravel\app\Modules\System\Language\en" />
       <recent name="D:\WEBSITE\OSPanel\domains\laravel\app\Modules\System\Language" />
       <recent name="D:\WEBSITE\OSPanel\domains\laravel\app\Modules\System\Views\admins" />
-    </key>
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\OSPanel\domains\laracode\app\Modules\System\Views" />
-      <recent name="C:\OSPanel\domains\laracode\app\Modules\System\Helper" />
-      <recent name="C:\WEBSITE\OSPanel\domains\laravel" />
-      <recent name="D:\WEBSITE\OSPanel\domains\laravel\resources\lang\en" />
-      <recent name="D:\WEBSITE\OSPanel\domains\laravel\app\Modules\System\Language" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -202,7 +202,9 @@
       <workItem from="1638580587663" duration="8521000" />
       <workItem from="1638589204588" duration="4726000" />
       <workItem from="1638604801829" duration="4328000" />
-      <workItem from="1638609411241" duration="3722000" />
+      <workItem from="1638609411241" duration="4152000" />
+      <workItem from="1638752695703" duration="11619000" />
+      <workItem from="1638842151931" duration="19646000" />
     </task>
     <servers />
   </component>

@@ -39,8 +39,32 @@
     {{--    script--}}
     <script type="text/javascript" src="{{ url('adminlte/dist/plugin/jquery.min.js') }}"></script>
     <script type="text/javascript" src="{{ url('adminlte/dist/plugin/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
+
     <script type="text/javascript" src="{{ url('adminlte/dist/js/theme-script.js') }}"></script>
-    <script type="text/javascript" src="{{ url('adminlte/plugins/select2/js/select2.js') }}"></script>
+
+    <script>
+        $.ajaxSetup({
+            headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            }
+        });
+        $(document).ready(function(){
+            $(".Switch").on('click',function() {
+                $.ajax({
+                    url: "{{ url('/').'/'.$backendUrl.'/ajax' }}",
+                    type : "POST",
+                    dataType:"text",
+                    data : {
+                        table : $(this).attr('data-table'),
+                        col : $(this).attr('data-col'),
+                        id: $(this).attr('data-id'),
+                    },
+                }).done(function() {
+
+                });
+            });
+        });
+    </script>
 </head>
 <body>
 <div class="template-administrator open-sidebar">

@@ -72,14 +72,13 @@
                                                 <input type="checkbox" class="ace" id="checkall">
                                                 <span class="lbl"></span> </label>
                                         </th>
-                                        <th>Tên</th>
-                                        <th>Mã</th>
-                                        <th>Giá so với USD</th>
-                                        <th>Trạng thái</th>
-                                        <th>Fiat</th>
-                                        <th>Mặc định</th>
-                                        <th>Cập nhật</th>
-                                        <th>Hành động</th>
+                                        <th>Name</th>
+                                        <th>Code</th>
+                                        <th>Rate USD</th>
+                                        <th>Symbol</th>
+                                        <th>Status</th>
+                                        <th>Update at</th>
+                                        <th>Action</th>
                                     </tr>
                                     </thead>
                                     <tbody>
@@ -95,44 +94,26 @@
                                             <td>{{ $currency->code }}</td>
                                             <td>{{ strval(round($currency->value, $currency->decimal)) }}</td>
                                             <td>
-                                                <div data-table="currencies"
-                                                     data-id="{{ $currency->id }}"
-                                                     data-col="status"
-                                                     class="template-administrator24-switch Switch Round   @if($currency->status == 1) On @else Off @endif  ">
-                                                    <input data-toggle="tooltip" name="default" id="status"
-                                                           @if($currency->status == 1) value="status" checked @else value="" @endif
-                                                           data-title-off="Đã tắt"
-                                                           data-title-on="Đã bật "
-                                                           type="checkbox"
-                                                           class="checkbox">
+                                               {{ $currency->symbol_left ?? $currency->symbol_right }}
+                                            </td>
+                                            <td>
+                                                <div data-table="currencies" data-id="{{ $currency->id }}" data-col="status"
+                                                     class="template-administrator24-switch Switch Round @if($currency->status == 1) On @else Off @endif  ">
+                                                    <input data-toggle="tooltip" name="default" id="status" @if($currency->status == 1) value="status" checked @else value="" @endif
+                                                     data-title-off="Đã tắt" data-title-on="Đã bật " type="checkbox" class="checkbox">
                                                     <div data-on="On" data-off="Off" class="switch"></div>
                                                 </div>
                                             </td>
-                                            <td>
-                                                @if($currency->fiat == 1)
-                                                    <span class="badge badge-success">Có</span>
-                                                @else
-                                                    <span class="badge badge-secondary">Không</span>
-                                                @endif
-                                            </td>
-                                            <td>
-                                                @if($currency->default == 1)
-                                                    <span class="badge badge-success">Có</span>
-                                                @else
-                                                    <span class="badge badge-secondary">Không</span>
-                                                @endif
-                                            </td>
+
                                             <td>{!! $currency->updated_at !!}</td>
                                             <td>
                                                 <div class="action-buttons">
                                                     <a href="{{ url($backendUrl.'/currencies/'.$currency->id.'/edit') }}">
                                                         <span class="btn btn-sm btn-warning"> <i title="Sửa" class="ace-icon fa fa-pencil mr-0"></i> </span>
                                                     </a>
-                                                    <a href="#" name="{{ $currency->name }}"
-                                                       link="{{ url($backendUrl.'/currencies/'.$currency->id) }}"
+                                                    <a href="#" name="{{ $currency->name }}" link="{{ url($backendUrl.'/currencies/'.$currency->id) }}"
                                                        class="deleteClick red id-btn-dialog2" data-toggle="modal"
                                                        data-target="#deleteModal"><span class="btn btn-sm btn-danger"><i title="Delete" class="ace-icon fa fa-trash mr-0"></i></span></a>
-
                                                 </div>
                                             </td>
                                         </tr>

@@ -11,6 +11,7 @@ Route::group(['module'=>'System', 'namespace' => '\App\Modules\System\Controller
         Route::get('/', 'BackendController@dashboard');
         Route::resource('roles','RoleController');
         Route::resource('permissions','PermissionController');
+        Route::post('/ajax', 'BackendController@updateToggle');
     });
 
     //Frontend
@@ -25,6 +26,7 @@ Route::group(['module'=>'User', 'namespace' => '\App\Modules\User\Controllers'],
     //Backend
     Route::group(['prefix'=>$admin_prefix, 'middleware' =>['auth','role:BACKEND']], function () {
         Route::resource('users','UserController');
+        Route::post('users/action','UserController@actions')->name('users.action.post');
     });
 
     //Frontend
@@ -74,4 +76,37 @@ Route::group(['module'=>'Currency', 'namespace' => '\App\Modules\Currency\Contro
         Route::post('currencies/actions','CurrencyController@actions');
     });
 });
-
+// FrontEnd
+Route::group(['module'=>'Frontend', 'namespace' => '\App\Modules\Frontend\Controllers'], function () use ($admin_prefix) {
+    //Frontend
+    Route::group(['middleware' =>['web']], function () {
+        Route::get('/', 'FrontendController@index');
+    });
+});
+//slider
+Route::group(['module'=>'Sliders', 'namespace' => '\App\Modules\Sliders\Controllers'], function () use ($admin_prefix) {
+    //Backend
+    Route::group(['prefix'=>$admin_prefix, 'middleware' =>['auth','role:BACKEND']], function () {
+        Route::resource('sliders','SlidersController');
+    });
+});
+//news
+Route::group(['module'=>'News', 'namespace' => '\App\Modules\News\Controllers'], function () use ($admin_prefix) {
+    //Backend
+    Route::group(['prefix'=>$admin_prefix, 'middleware' =>['auth','role:BACKEND']], function () {
+        Route::resource('news','NewsController');
+        Route::resource('news_cat','NewsCatController');
+        Route::post('news/actions','NewsController@actions');
+        Route::post('news_cat/actions','NewsCatController@actions');
+        Route::post('make/ajaxslug', 'NewsController@ajaxSlug');
+        Route::post('news_categories/ajaxPost','NewsCatController@ajaxPost')->name('news_categories.ajaxpost');
+        Route::post('news_categories/ajaxItemAction','NewsCatController@ajaxItemAction')->name('news_categories.ajaxitemaction');
+        Route::post('news_categories/renderCreateForm','NewsCatController@renderCreateForm')->name('news_categories.ajaxrenderform');
+    });
+    //Frontend
+    Route::group(['middleware' =>['web']], function () {
+        Route::get('news', ['as'=>'frontend.news.index', 'uses'=>'NewsFrontController@index']);
+        Route::get('news/{news_slug}.html', ['as'=>'frontend.news.view', 'uses'=>'NewsFrontController@newsDetail']);
+        Route::get('news/{category_slug}', ['as'=>'frontend.news_category.view', 'uses'=>'NewsFrontController@renderNewsCategory']);
+    });
+});

@@ -43,10 +43,7 @@
                                             <label for="name" class="font-weight-bold">Code:</label>
                                             {!! Form::select('code',$lsCurrency,[], array('class' => 'form-control')) !!}
                                         </div>
-                                        <div class="form-group">
-                                            <label for="name" class="font-weight-bold">Decimal:</label>
-                                            {!! Form::text('decimal', null, array('placeholder' => 'Enter Decimal','class' => 'form-control')) !!}
-                                        </div>
+
                                         <div class="form-group">
                                             <label for="symbol_right" class="font-weight-bold">Symbol Left:</label>
                                             {!! Form::text('symbol_right', null, array('placeholder' => 'Enter Symbol Left','class' => 'form-control')) !!}
@@ -58,8 +55,8 @@
                                     </div>
                                     <div class="col-md-6">
                                         <div class="form-group">
-                                            <label for="symbol_right" class="font-weight-bold">Balance Admin:</label>
-                                            {!! Form::text('wallet_admin_balance', null, array('placeholder' => 'Balance Admin','class' => 'form-control')) !!}
+                                            <label for="name" class="font-weight-bold">Decimal:</label>
+                                            {!! Form::text('decimal', null, array('placeholder' => 'Enter Decimal','class' => 'form-control')) !!}
                                         </div>
                                         <div class="form-group">
                                             <label for="symbol_right" class="font-weight-bold">Rate USD:</label>

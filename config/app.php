@@ -14,7 +14,7 @@ return [
     */
 
     'name' => env('APP_NAME', 'NCS'),
-    'backendRoute' => env('BACKEND_URI','adminnc'),
+    'backendRoute' => "admincp",
     'theme' => env('THEME','default'),
 
     /*

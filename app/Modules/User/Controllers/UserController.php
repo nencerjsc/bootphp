@@ -142,4 +142,15 @@ class UserController extends Controller
         return redirect()->route('users.index')
             ->with('success','User deleted successfully');
     }
+
+    public function actions(Request $request)
+    {
+        $val = $request->check;
+        $action = $request->action;
+        if (empty($val)) {
+            return redirect()->route('users.index')->withErrors(['message' => 'Không có mục nào được chọn.']);
+        }
+        $user = User::whereIn('id',$val)->delete();
+        return redirect()->route('users.index')->with('success', 'Group  ' . $action . ' successfully');
+    }
 }
