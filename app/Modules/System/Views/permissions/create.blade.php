@@ -1,56 +1,78 @@
-@extends('layouts.app')
-
+@extends('System::backend.layouts.master')
 
 @section('content')
-<!-- Main content -->
-<section class="content">
-  <div class="row">
-    <div class="col-12">
-      <div class="col-md-12">
-            <!-- general form elements -->
-
-           @include('layouts.errors')
-
-            <div class="card card-primary">
-              <div class="card-header">
-                <h3 class="card-title">Create Permission</h3>
-              </div>
-              <!-- /.card-header -->
-              <!-- form start -->
-              {!! Form::open(array('route' => 'permissions.store','method'=>'POST')) !!}
-                <div class="card-body row">
-                  <div class="form-group col-md-6">
-                    <label for="name">Name:</label>
-                    <input name="name" type="text" class="form-control" id="name" placeholder="Enter Name" value="{{ old('name') }}">
-                  </div>
-                  <div class="form-group col-md-6">
-                    <label for="guard_name">Guard Name:</label>
-                    <input name="guard_name" type="text" class="form-control" id="guard_name" placeholder="Guard Name" value="{{ old('guard_name', 'web') }}">
-                  </div>
-                  <div class="form-group col-md-12">
-                    <label for="description">Description:</label>
-                    <textarea name="description" class="form-control" id="description" placeholder="Description">{{ old('description') }}</textarea>
-                  </div>
+    <div class="content-wrapper">
+        <div class="content-header">
+            <div class="container-fluid">
+                <div class="row mb-2">
+                    <div class="col-sm-6">
+                        <h1 class="m-0 text-dark">Create Permission</h1>
+                    </div><!-- /.col -->
+                    <div class="col-sm-6">
+                        <ol class="breadcrumb float-sm-right">
+                            <li class="breadcrumb-item"><a
+                                    href="{{ url(config('app.backendRoute').'/') }}">Dashboard</a></li>
+                            <li class="breadcrumb-item active">Create Permission</li>
+                        </ol>
+                    </div><!-- /.col -->
+                </div><!-- /.row -->
+            </div><!-- /.container-fluid -->
+        </div>
+        <section class="content">
+            <div class="container-fluid">
+                <div class="main-inner">
+                    <!-- *** Page title *** -->
+                    @if (count($errors) > 0)
+                        <div class="alert alert-danger">
+                            <strong>Whoops!</strong> There were some problems with your input.<br><br>
+                            <ul>
+                                @foreach ($errors->all() as $error)
+                                    <li>{{ $error }}</li>
+                                @endforeach
+                            </ul>
+                        </div>
+                    @endif
+                    <div class="card-create" id="form-create">
+                        <div class="row">
+                            <div class="col-12">
+                                <div class="card-table">
+                                    <div class="card">
+                                        <div class="card-body">
+                                            {!! Form::open(array('route' => 'permissions.store','method'=>'POST')) !!}
+                                            <div class="mt-4 row">
+                                                <div class="col-md-6">
+                                                    <div class="form-group">
+                                                        <label for="name" class="font-weight-bold">Name:</label>
+                                                        {!! Form::text('name', null, array('placeholder' => 'Name','class' => 'form-control')) !!}
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label for="name" class="font-weight-bold">Guard
+                                                            Name:</label>
+                                                        {!! Form::text('guard_name', null, array('placeholder' => 'Guard Name','class' => 'form-control')) !!}
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label for="name"
+                                                               class="font-weight-bold">Description:</label>
+                                                        <input name="description" type="text" class="form-control"
+                                                               id="description" placeholder="Description"
+                                                               value="{{ old('description') }}">
+                                                    </div>
+                                                    <div class="col-xs-12 col-sm-12 col-md-12 text-center">
+                                                        <button type="submit" class="btn btn-primary">Submit
+                                                        </button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            {!! Form::close() !!}
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-                <!-- /.card-body -->
-
-                <div class="card-footer">
-                  <button type="submit" class="btn btn-primary float-right">Submit</button>
-                </div>
-              {!! Form::close() !!}
             </div>
-            <!-- /.card -->
-              </div>
-              <!-- /.card-body -->
-            </div>
-            <!-- /.card -->
-
-          </div>
-    <!-- /.card -->
+        </section>
     </div>
-  <!-- /.col -->
-  </div>
-<!-- /.row -->
-</section>
 <!-- /.content -->
 @endsection

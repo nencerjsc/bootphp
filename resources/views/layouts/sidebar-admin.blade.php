@@ -14,13 +14,20 @@
             </li>
             <li class="nav-item">
                 <a href="{{ route('currencies.index') }}" class="nav-link">
-                    <i class="fas fa-sync-alt fa-rotate-90"></i>
+                    <i class="fas fa-money-bill-alt"></i>
+
                     <span class="ml-2">Currencies</span>
                 </a>
             </li>
             <li class="nav-item">
-                <a href="{{ route('backend.language.setting') }}" class="nav-link">
+                <a href="{{ route('news.index') }}" class="nav-link">
                     <i class="fas fa-newspaper"></i>
+                    <span class="ml-2">News</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a href="{{ route('backend.language.setting') }}" class="nav-link">
+                    <i class="fas fa-language"></i>
                     <span class="ml-2">Language</span>
                 </a>
             </li>
@@ -48,6 +55,12 @@
                         </li>
                     </ul>
                 </div>
+            </li>
+            <li class="nav-item">
+                <a href="{{ route('sliders.index') }}" class="nav-link">
+                    <i class="fas fa-images"></i>
+                    <span class="ml-2">Sliders</span>
+                </a>
             </li>
         </ul>
     </div>

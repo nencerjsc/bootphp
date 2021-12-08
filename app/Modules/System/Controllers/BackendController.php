@@ -27,8 +27,9 @@ class BackendController extends Controller
     public function dashboard(Request $request)
     {
         $title = __('backend.dashboard');
-
-        return view('System::backend.pages.dashboard', compact('title'));
+        $users = User::orderBy('id','DESC')->limit(5)->get();
+        $count_user = User::count();
+        return view('System::backend.pages.dashboard', compact('title','users','count_user'));
     }
     protected function updateToggle(Request $request)
     {

@@ -128,7 +128,7 @@
   <component name="ProjectId" id="21nd3NMkSufq9vipsM621wXL0Su" />
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/app/Modules" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="settings.editor.selected.configurable" value="preferences.sourceCode" />
     <property name="settings.editor.splitter.proportion" value="0.2" />
@@ -205,6 +205,8 @@
       <workItem from="1638609411241" duration="4152000" />
       <workItem from="1638752695703" duration="11619000" />
       <workItem from="1638842151931" duration="19646000" />
+      <workItem from="1638925675181" duration="2049000" />
+      <workItem from="1638948739821" duration="7644000" />
     </task>
     <servers />
   </component>
@@ -240,5 +242,36 @@
     <option name="RECENTLY_FILTERED_BRANCH_GROUPS">
       <collection />
     </option>
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="php">
+          <url>file://$PROJECT_DIR$/app/Modules/User/Views/edit.blade.php</url>
+          <line>24</line>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="php">
+          <url>file://$PROJECT_DIR$/app/Modules/User/Views/edit.blade.php</url>
+          <line>26</line>
+          <option name="timeStamp" value="2" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="php">
+          <url>file://$PROJECT_DIR$/app/Modules/User/Views/create.blade.php</url>
+          <line>22</line>
+          <option name="timeStamp" value="3" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="php">
+          <url>file://$PROJECT_DIR$/app/Modules/System/Views/backend/partials/sidebar.blade.php</url>
+          <line>11</line>
+          <option name="timeStamp" value="4" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="php">
+          <url>file://$PROJECT_DIR$/app/Modules/System/Views/backend/partials/sidebar.blade.php</url>
+          <line>88</line>
+          <option name="timeStamp" value="5" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

@@ -18,23 +18,26 @@ class NewsCatController extends Controller
     {
 
     }
+
     public function index(Request $request)
     {
         ///ProductCat::fixTree();
-        $cats = NewsCategory::orderBy('id','DESC')->paginate(25);
+        $cats = NewsCategory::orderBy('id', 'DESC')->paginate(25);
         $title = 'List Catalog';
         return view("News::news_cat.index", compact('cats', 'title'));
     }
+
     public function create()
     {
 
-            $title = 'Tạo mới';
-            $languages = Language::where('status', 1)->select('name', 'code')->orderBy('default', 'desc')->get()->toArray();
+        $title = 'Tạo mới';
+        $languages = Language::where('status', 1)->select('name', 'code')->orderBy('default', 'desc')->get()->toArray();
 
-            $default_lang = 'vi';
-            $cat_lists = NewsCategory::get();
-            return view('News::news_cat.create', compact('languages', 'title', 'cat_lists'));
+        $default_lang = 'vi';
+        $cat_lists = NewsCategory::get();
+        return view('News::news_cat.create', compact('languages', 'title', 'cat_lists'));
     }
+
     public function store(Request $request)
     {
         $this->validate($request, [
@@ -48,7 +51,6 @@ class NewsCatController extends Controller
             $parent_cate = NewsCategory::find($input['parent_id']);
             $parent_cate->save();
         }
-        NewsCategory::fixTree();
         if ($request->image) {
             $imagelink = explode('storage', $request->image);
             $input['image'] = '/storage' . $imagelink[1];
@@ -64,20 +66,17 @@ class NewsCatController extends Controller
         }
 
     }
+
     public function edit($id)
     {
-        if (auth()->user()->hasRole('SUPER_ADMIN|BACKEND')) {
-            $cat = NewsCategory::where('id', $id)->first();
-            $title = 'Edit ' . $cat->name;
-            $languages = Language::where('status', 1)->select('name', 'code')->orderBy('default', 'desc')->get()->toArray();
+        $cat = NewsCategory::where('id', $id)->first();
+        $title = 'Edit ' . $cat->name;
+        $languages = Language::where('status', 1)->select('name', 'code')->orderBy('default', 'desc')->get()->toArray();
 
-            $cat_lists = NewsCategory::getListCatalog($cat->lang);
-            return view("News::news_cat.edit", compact('id', 'languages', 'cat', 'title', 'cat_lists'));
-        } else {
-            return redirect()->route('news_cat.index')
-                ->withErrors(['error' => __('admin.no_permission')]);
-        }
+        $cat_lists = NewsCategory::where('id', '!=', $id)->get();
+        return view("News::news_cat.edit", compact('id', 'languages', 'cat', 'title', 'cat_lists'));
     }
+
     public function update(Request $request, $id)
     {
         $this->validate($request, [
@@ -86,7 +85,7 @@ class NewsCatController extends Controller
             'lang' => 'required',
         ]);
         $cate = NewsCategory::find($id);
-        if($request->cat_id == $cate->id){
+        if ($request->cat_id == $cate->id) {
             return redirect()->route('news_cat.index')
                 ->withErrors(['error' => __('admin.parent_error')]);
         }
@@ -104,40 +103,23 @@ class NewsCatController extends Controller
             $cate->image = '/storage' . $imagelink[1];
         }
         $cate->save();
-        NewsCategory::fixTree();
         return redirect()->route('news_cat.index')
             ->with('success', __('admin.update_success'));
     }
 
     public function destroy($id)
     {
-        if (auth()->user()->hasRole('SUPER_ADMIN|BACKEND')) {
-            $cat = NewsCategory::find($id);
-            if ($cat) {
-                //Kiểm tra con
-                if (count($cat->children)) {
-                    return redirect()->route('news_cat.index')
-                        ->withErrors(['error' => __('admin.delete_failed_children')]);
-                } else {
-                    $cat->delete();
-                    NewsCategory::fixTree();
-                    return redirect()->route('news_cat.index')
-                        ->with('success', __('admin.delete_success'));
-                }
-            } else {
-                return redirect()->route('news_cat.index')
-                    ->withErrors(['error' => __('admin.delete_failed')]);
-            }
-
+        $cat = NewsCategory::find($id);
+        if ($cat) {
+            //Kiểm tra con
+            NewsCategory::where('parent_id', $cat->id)->delete();
+            $cat->delete();
+            return redirect()->route('news_cat.index')
+                ->with('success', __('admin.delete_success'));
         } else {
             return redirect()->route('news_cat.index')
-                ->withErrors(['error' => __('admin.no_permission')]);
+                ->withErrors(['error' => __('admin.delete_failed')]);
         }
-    }
-    ///Lấy tất cả các Id cat con
-    public static function getAllChildId($cat_id)
-    {
-        $ids = NewsCategory::descendantsOf($cat_id)->pluck('id')->toArray();
-        return array_merge($ids, [$cat_id]);
+
     }
 }
