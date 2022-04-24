@@ -192,15 +192,17 @@ class LanguageController extends Controller
                     if($check){
                         continue;
                     }else{
-                        $trans = new Translation;
-                        $trans->lang_code = $code;
-                        $trans->lang_key = $file.'.'.$key;
-                        $trans->key = $code.'_'.$file.'_'.$key;
-                        $trans->filename = $file;
-                        $trans->content = $content;
-                        $trans->type = $type;
-                        $trans->save();
-                        unset($tran);
+                        if($type == 'string'){
+                            $trans = new Translation;
+                            $trans->lang_code = $code;
+                            $trans->lang_key = $file.'.'.$key;
+                            $trans->key = $code.'_'.$file.'_'.$key;
+                            $trans->filename = $file;
+                            $trans->content = $content;
+                            $trans->type = $type;
+                            $trans->save();
+                            unset($tran);
+                        }
                     }
                 }
 

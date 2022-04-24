@@ -24,17 +24,17 @@ function themeinclude($path, $values = array())
 
 function getIpClient()
 {
-    try{
-        if(!empty($_SERVER['HTTP_CLIENT_IP'])){
+    try {
+        if (!empty($_SERVER['HTTP_CLIENT_IP'])) {
             //ip from share internet
             $ip = $_SERVER['HTTP_CLIENT_IP'];
-        }elseif(!empty($_SERVER['HTTP_X_FORWARDED_FOR'])){
+        } elseif (!empty($_SERVER['HTTP_X_FORWARDED_FOR'])) {
             //ip pass from proxy
             $ip = $_SERVER['HTTP_X_FORWARDED_FOR'];
-        }else{
+        } else {
             $ip = $_SERVER['REMOTE_ADDR'];
         }
-    }catch (\Exception $e){
+    } catch (\Exception $e) {
         $ip = null;
     }
 
@@ -43,86 +43,87 @@ function getIpClient()
 
 
 /////ví dụ: create, list, edit...
-function allow($name_of_permission){
-
-    if(auth()->user()->hasPermissionTo($name_of_permission)){
+function allow($name_of_permission)
+{
+    if (auth()->user()->hasPermissionTo($name_of_permission)) {
         return true;
-    }else{
+    } else {
         return false;
     }
 }
 
-////model là obj của bảng cần thực hiện
-function actionList($action, $model, array $ids){
-  if(!$action || !$model || !count($ids)){
-    return false;
-  }else{
-    try{
-      if($action == 'on'){
-        if(in_array('status', $model->getFillable())){
-          $model->whereIn('id', $ids)->update(['status' => 1]);
-        }
-      }
-      if($action == 'off'){
-        if(in_array('status', $model->getFillable())){
-          $model->whereIn('id', $ids)->update(['status' => 0]);
-        }
-      }
+function actionList($action, $model, array $ids)
+{
+    if (!$action || !$model || !count($ids)) {
+        return false;
+    } else {
+        try {
+            if ($action == 'on') {
+                if (in_array('status', $model->getFillable())) {
+                    $model->whereIn('id', $ids)->update(['status' => 1]);
+                }
+            }
+            if ($action == 'off') {
+                if (in_array('status', $model->getFillable())) {
+                    $model->whereIn('id', $ids)->update(['status' => 0]);
+                }
+            }
 
-      if($action == 'approved'){
-        if(in_array('approved', $model->getFillable())){
-          $model->whereIn('id', $ids)->update(['approved' => 1]);
-        }
-      }
+            if ($action == 'approved') {
+                if (in_array('approved', $model->getFillable())) {
+                    $model->whereIn('id', $ids)->update(['approved' => 1]);
+                }
+            }
 
-      if($action == 'unapproved'){
-        if(in_array('approved', $model->getFillable())){
-          $model->whereIn('id', $ids)->update(['approved' => 0]);
-        }
-      }
+            if ($action == 'unapproved') {
+                if (in_array('approved', $model->getFillable())) {
+                    $model->whereIn('id', $ids)->update(['approved' => 0]);
+                }
+            }
 
-      if($action == 'delete'){
-        $model->whereIn('id', $ids)->delete();
-      }
-      return 'SUCCESS';
-    }catch (\Exception $e){
-      return false;
+            if ($action == 'delete') {
+                $model->whereIn('id', $ids)->delete();
+            }
+            return 'SUCCESS';
+        } catch (\Exception $e) {
+            return false;
+        }
     }
-  }
 
 }
 
 ///Lấy symbol của tiền tệ
-function priceWithSymbol($price, $currency_id){
+function priceWithSymbol($price, $currency_id)
+{
 
-  if($price){
-    $currency = cache()->remember('currency_'.$currency_id, 10, function() use($currency_id) {
-      return \App\Modules\Currency\Models\Currencies::find($currency_id);
-    });
+    if ($price) {
+        $currency = cache()->remember('currency_' . $currency_id, 10, function () use ($currency_id) {
+            return \App\Modules\Currency\Models\Currencies::find($currency_id);
+        });
 
-    if($currency){
-      if($currency->symbol_left){
-        $amount = $currency->symbol_left.number_format($price);
-      }else{
-        $amount = number_format($price).$currency->symbol_right;
-      }
+        if ($currency) {
+            if ($currency->symbol_left) {
+                $amount = $currency->symbol_left . number_format($price);
+            } else {
+                $amount = number_format($price) . $currency->symbol_right;
+            }
 
-      return $amount;
-    }else{
-      return null;
+            return $amount;
+        } else {
+            return null;
+        }
     }
-  }
 
 }
 
-///Hàm mã hóa
+///Encrypt
 function encryptcode($key, $string)
 {
     $newEncrypter = new \Illuminate\Encryption\Encrypter(base64_decode($key), 'AES-256-CBC');
     return $newEncrypter->encrypt($string);
 }
 
-//Hàm Giải mã
+//Decrypt
 function decryptcode($key, $string)
 {
     $newEncrypter = new \Illuminate\Encryption\Encrypter(base64_decode($key), 'AES-256-CBC');

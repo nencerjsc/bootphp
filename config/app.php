@@ -16,6 +16,7 @@ return [
     'name' => env('APP_NAME', 'NCS'),
     'backendRoute' => "admincp",
     'theme' => env('THEME','default'),
+    'version' => '1.0',
 
     /*
     |--------------------------------------------------------------------------
