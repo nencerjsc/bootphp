@@ -2,14 +2,13 @@
 
 namespace App\Modules\News\Controllers;
 
-use App\Modules\Frontend\Controllers\FrontendController;
+use App\Modules\System\Controllers\FrontendController;
 use Illuminate\Http\Request;
 use Session;
 use App;
 
 use App\Modules\News\Models\News;
 use Cache;
-use App\Modules\Seo\Models\Seo;
 use App\Modules\News\Models\NewsCategory;
 
 class NewsFrontController extends FrontendController

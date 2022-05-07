@@ -1,13 +1,13 @@
 <?php
 
-function themeview($path, $values = array())
+function theme_view($path, $values = array())
 {
     $theme = config('app.theme');
-    $full_path = 'frontend.' . $theme . '.' . $path;
+    $full_path = 'templates.' . $theme . '.' . $path;
     return view($full_path, $values);
 }
 
-function themeasset($path)
+function theme_asset($path)
 {
     $theme = config('app.theme');
     $file_path = 'assets/' . $theme . '/' . $path;
@@ -15,10 +15,10 @@ function themeasset($path)
     return asset($file_path);
 }
 
-function themeinclude($path, $values = array())
+function theme_include($path, $values = array())
 {
     $theme = config('app.theme');
-    $full_path = 'frontend.' . $theme . '.' . $path;
+    $full_path = 'templates.' . $theme . '.' . $path;
     return view($full_path, $values);
 }
 

@@ -1,8 +1,6 @@
 <?php
-$admin_prefix = config('app.backendRoute');
+$admin_prefix = config('app.backendRoute') ?? 'admincp';
 Auth::routes();
-Route::get('/home', 'HomeController@index');
-
 
 ///Module System Core
 Route::group(['module'=>'System', 'namespace' => '\App\Modules\System\Controllers'], function () use ($admin_prefix) {
@@ -74,13 +72,6 @@ Route::group(['module'=>'Currency', 'namespace' => '\App\Modules\Currency\Contro
     Route::group(['prefix'=>$admin_prefix, 'middleware' =>['auth','role:BACKEND']], function () {
         Route::resource('currencies','CurrencyController');
         Route::post('currencies/actions','CurrencyController@actions');
-    });
-});
-// FrontEnd
-Route::group(['module'=>'Frontend', 'namespace' => '\App\Modules\Frontend\Controllers'], function () use ($admin_prefix) {
-    //Frontend
-    Route::group(['middleware' =>['web']], function () {
-        Route::get('/', 'FrontendController@index');
     });
 });
 //slider

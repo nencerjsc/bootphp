@@ -1,8 +1,7 @@
 <?php
 
 namespace App\Modules\Ztest\Controllers;
-use App\Modules\Frontend\Controllers\FrontendController;
-use App\Modules\Ztest\Models\Ztest;
+use App\Modules\System\Controllers\FrontendController;
 
 class ZtestFrontController extends FrontendController
 {

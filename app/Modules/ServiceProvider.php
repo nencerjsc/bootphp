@@ -18,8 +18,8 @@ class ServiceProvider extends  \Illuminate\Support\ServiceProvider{
             include __DIR__.'/Helpers.php';
         }
 
-        Blade::directive('themeinclude', function ($string_params){
-            $html = '{!! themeinclude('.$string_params.') !!}';
+        Blade::directive('theme_include', function ($string_params){
+            $html = '{!! theme_include('.$string_params.') !!}';
             return $html;
         });
     }

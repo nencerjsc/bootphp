@@ -37,4 +37,10 @@ class ConfirmPasswordController extends Controller
     {
         $this->middleware('auth');
     }
+
+    public function showConfirmForm()
+    {
+        return theme_view('auth.passwords.confirm');
+    }
+
 }

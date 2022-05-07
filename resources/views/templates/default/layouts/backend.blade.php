@@ -68,7 +68,7 @@
 </head>
 <body>
 <div class="template-administrator open-sidebar">
-    @include('layouts.sidebar-admin')
+    @include('frontend.default.layouts.sidebar-admin')
     {{--    header--}}
     <header id="header" class="header">
         <div class="navbar pr-0 pr-lg-0 navbar-expand">
