@@ -27,6 +27,31 @@
 {{--    <script src="{{ asset('adminlte/plugins/select2/js/select2.min.js') }}"></script>--}}
     <!-- PAGE SCRIPTS -->
     <script src="{{asset('adminlte/dist/js/pages/dashboard2.js')}}"></script>
+    <meta name="csrf-token" id="csrf-token" content="{{ csrf_token() }}">
+    <script>
+        $.ajaxSetup({
+            headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            }
+        });
+        $(document).ready(function(){
+            $(".Switch").on('click',function() {
+                $.ajax({
+                    url: "{{ url('/').'/'.$backendUrl.'/ajax' }}",
+                    type : "post",
+                    dataType:"text",
+                    data : {
+                        action : 'updateToggle',
+                        table : $(this).attr('data-table'),
+                        col : $(this).attr('data-col'),
+                        id: $(this).attr('data-id')
+                    },
+                }).done(function() {
+
+                });
+            });
+        });
+    </script>
 </head>
 
 <body class="hold-transition sidebar-mini layout-fixed layout-navbar-fixed layout-footer-fixed text-sm">

@@ -24,7 +24,7 @@
                 <!-- Add icons to the links using the .nav-icon class
                      with font-awesome or any other icon font library -->
                 <li class="nav-item">
-                    <a href="{{url($backendUrl)}}" class="nav-link active">
+                    <a href="{{url($backendUrl)}}" class="nav-link @if(url($backendUrl) == url()->current()) active @endif" >
                         <i class="nav-icon fas fa-tachometer-alt"></i>
                         <p>
                             Dashboard
@@ -32,7 +32,7 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a href="{{route('news.index')}}" class="nav-link">
+                    <a href="{{route('news.index')}}" class="nav-link @if(route('news.index') == url()->current()) active @endif">
                         <i class="nav-icon fas fa-newspaper"></i>
                         <p>
                             News
@@ -40,15 +40,29 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a href="{{ route('currencies.index') }}" class="nav-link">
+                    <a href="{{route('menu.index')}}" class="nav-link @if(route('menu.index') == url()->current()) active @endif">
+                        <i class="nav-icon fas fa-list"></i>
+                        <p>
+                            Menu
+                        </p>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="{{ route('currencies.index') }}" class="nav-link @if(route('currencies.index') == url()->current()) active @endif">
                         <i class="nav-icon fas fa-money-bill-alt"></i>
                         <p>Currencies </p>
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a href="{{ route('backend.language.setting') }}" class="nav-link">
+                    <a href="{{ route('backend.language.setting') }}" class="nav-link @if(route('backend.language.setting') == url()->current()) active @endif">
                         <i class="nav-icon fas fa-language"></i>
                         <p>Language </p>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="{{ route('settings.index') }}" class="nav-link @if(route('settings.index') == url()->current()) active @endif">
+                        <i class="nav-icon fas fa-cog"></i>
+                        <p>Setting </p>
                     </a>
                 </li>
                 <li class="nav-item has-treeview">

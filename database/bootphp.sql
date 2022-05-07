@@ -1,8 +1,8 @@
 -- --------------------------------------------------------
 -- Host:                         127.0.0.1
--- Server version:               5.7.23 - MySQL Community Server (GPL)
+-- Server version:               5.7.25 - MySQL Community Server (GPL)
 -- Server OS:                    Win64
--- HeidiSQL Version:             9.5.0.5196
+-- HeidiSQL Version:             11.0.0.5919
 -- --------------------------------------------------------
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
@@ -29,7 +29,7 @@ CREATE TABLE IF NOT EXISTS `blocks` (
   UNIQUE KEY `key` (`key`)
 ) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
--- Dumping data for table bootphp.blocks: ~1 rows (approximately)
+-- Dumping data for table bootphp.blocks: ~0 rows (approximately)
 /*!40000 ALTER TABLE `blocks` DISABLE KEYS */;
 INSERT INTO `blocks` (`id`, `name`, `key`, `lang`, `require_login`, `position`, `widget`, `url`, `sort`, `status`, `created_at`, `updated_at`) VALUES
 	(1, 'Khách phản hồi', 'cusfeedback', 'vi', 0, 'homecenter', 'Html', NULL, '0', '1', '2019-09-01 05:43:15', '2019-09-01 05:43:15');
@@ -81,10 +81,10 @@ CREATE TABLE IF NOT EXISTS `currencies` (
   KEY `currencies_status_index` (`status`)
 ) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
--- Dumping data for table bootphp.currencies: ~3 rows (approximately)
+-- Dumping data for table bootphp.currencies: ~0 rows (approximately)
 /*!40000 ALTER TABLE `currencies` DISABLE KEYS */;
 INSERT INTO `currencies` (`id`, `name`, `code`, `value`, `value_sell`, `symbol_left`, `symbol_right`, `seperator`, `decimal`, `status`, `fiat`, `default`, `sort`, `created_at`, `updated_at`) VALUES
-	(2, 'US dollars', 'USD', 1, 0, '$', NULL, 'comma', 2, 0, 1, 1, 1, '2018-07-25 10:54:56', '2020-10-10 05:23:31');
+	(2, 'US dollars', 'USD', 1, 0, '$', NULL, 'comma', 2, 1, 1, 1, 1, '2018-07-25 10:54:56', '2020-10-10 05:23:31');
 /*!40000 ALTER TABLE `currencies` ENABLE KEYS */;
 
 -- Dumping structure for table bootphp.currencies_code
@@ -285,10 +285,10 @@ CREATE TABLE IF NOT EXISTS `languages` (
   UNIQUE KEY `code` (`code`)
 ) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
 
--- Dumping data for table bootphp.languages: ~2 rows (approximately)
+-- Dumping data for table bootphp.languages: ~0 rows (approximately)
 /*!40000 ALTER TABLE `languages` DISABLE KEYS */;
 INSERT INTO `languages` (`id`, `name`, `code`, `flag`, `hreflang`, `charset`, `default`, `status`, `installed`, `sort`, `created_at`, `updated_at`) VALUES
-	(1, 'English', 'us', 'us.png', NULL, NULL, 0, 0, 1, 1, '2022-04-24 14:39:20', '2021-12-04 08:28:39');
+	(1, 'English', 'us', 'us.png', NULL, NULL, 0, 1, 1, 1, '2022-05-07 14:47:27', '2021-12-04 08:28:39');
 /*!40000 ALTER TABLE `languages` ENABLE KEYS */;
 
 -- Dumping structure for table bootphp.languages_trans
@@ -304,9 +304,9 @@ CREATE TABLE IF NOT EXISTS `languages_trans` (
   `updated_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`),
   UNIQUE KEY `key` (`key`)
-) ENGINE=InnoDB AUTO_INCREMENT=2032 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=2099 DEFAULT CHARSET=utf8;
 
--- Dumping data for table bootphp.languages_trans: ~1,627 rows (approximately)
+-- Dumping data for table bootphp.languages_trans: ~67 rows (approximately)
 /*!40000 ALTER TABLE `languages_trans` DISABLE KEYS */;
 INSERT INTO `languages_trans` (`id`, `lang_code`, `lang_key`, `filename`, `key`, `content`, `type`, `created_at`, `updated_at`) VALUES
 	(2032, 'us', 'auth.failed', 'auth', 'us_auth_failed', 'These credentials do not match our records.', 'string', '2022-04-24 07:38:28', '2022-04-24 07:38:28'),
@@ -377,6 +377,46 @@ INSERT INTO `languages_trans` (`id`, `lang_code`, `lang_key`, `filename`, `key`,
 	(2097, 'us', 'validation.url', 'validation', 'us_validation_url', 'The :attribute format is invalid.', 'string', '2022-04-24 07:38:28', '2022-04-24 07:38:28'),
 	(2098, 'us', 'validation.uuid', 'validation', 'us_validation_uuid', 'The :attribute must be a valid UUID.', 'string', '2022-04-24 07:38:28', '2022-04-24 07:38:28');
 /*!40000 ALTER TABLE `languages_trans` ENABLE KEYS */;
+
+-- Dumping structure for table bootphp.menu
+CREATE TABLE IF NOT EXISTS `menu` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `name` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `url` text COLLATE utf8_unicode_ci NOT NULL,
+  `menu_type` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `parent_id` int(11) DEFAULT '0',
+  `level` int(11) DEFAULT '1',
+  `children_count` int(11) DEFAULT '0',
+  `sort_order` int(11) DEFAULT NULL,
+  `status` tinyint(2) DEFAULT '1',
+  `language` varchar(50) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
+  `updated_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=100 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+-- Dumping data for table bootphp.menu: ~18 rows (approximately)
+/*!40000 ALTER TABLE `menu` DISABLE KEYS */;
+INSERT INTO `menu` (`id`, `name`, `url`, `menu_type`, `parent_id`, `level`, `children_count`, `sort_order`, `status`, `language`, `created_at`, `updated_at`) VALUES
+	(60, 'Mua mã thẻ', '/card', 'header', 0, 1, 0, 1, 1, 'vi', '2018-08-05 05:16:17', '2021-10-06 22:49:06'),
+	(61, 'Đổi thẻ cào', '/doithecao', 'header', 0, 1, 1, 2, 1, 'vi', '2018-08-05 05:16:37', '2022-05-07 06:48:03'),
+	(71, 'Tin tức', 'news', 'header', 0, 1, 0, 5, 1, 'vi', '2018-08-11 22:52:37', '2020-10-10 08:48:27'),
+	(73, 'Dịch vụ', '#', 'footer', 0, 1, 4, 22, 1, 'vi', '2018-08-16 16:11:21', '2021-11-20 15:00:52'),
+	(74, 'Thông tin', '#', 'footer', 0, 1, 4, 33, 1, 'vi', '2018-08-16 16:11:35', '2021-11-20 15:03:29'),
+	(87, 'Nạp topup', '/recharge', 'header', 0, 1, 0, 3, 1, 'vi', '2019-01-09 20:48:45', '2021-09-23 17:25:19'),
+	(88, 'Buy card', './card', 'header', 61, 1, 0, 1, 1, 'us', '2020-05-22 08:20:05', '2022-05-07 06:48:52'),
+	(89, 'Card Charging', './doithecao', 'header', 0, 1, 0, 2, 1, 'us', '2020-05-22 08:20:47', '2020-05-22 08:20:47'),
+	(90, 'Topup', './recharge', 'header', 0, 1, 0, 3, 1, 'us', '2020-05-22 08:21:19', '2021-10-06 23:24:07'),
+	(91, 'News', './tin-tuc', 'header', 0, 1, 0, 3, 1, 'us', '2020-05-22 08:21:40', '2020-05-22 08:21:40'),
+	(92, 'Mua mã thẻ', '/card', 'footer', 73, 2, 0, 1, 1, 'vi', '2021-11-20 14:59:32', '2021-11-20 14:59:32'),
+	(93, 'Đổi thẻ cào', '/doithecao', 'footer', 73, 2, 0, 2, 1, 'vi', '2021-11-20 15:00:27', '2021-11-20 15:00:27'),
+	(94, 'Nạp topup', '/recharge', 'footer', 73, 2, 0, 3, 1, 'vi', '2021-11-20 15:00:52', '2021-11-20 15:00:52'),
+	(95, 'Tin tức', '/news', 'footer', 74, 2, 0, 1, 1, 'vi', '2021-11-20 15:02:05', '2021-11-20 15:02:05'),
+	(96, 'Kết nối API', '/merchant/list', 'footer', 74, 2, 0, 2, 1, 'vi', '2021-11-20 15:02:50', '2021-11-20 15:02:50'),
+	(97, 'Bảo mật', '/account/security', 'footer', 74, 2, 0, 2, 1, 'vi', '2021-11-20 15:03:29', '2021-11-20 15:03:29'),
+	(98, 'Ngân hàng ACB', 'ngan-hang-acb', 'header', 0, 1, 0, 1, 1, 'us', '2022-05-07 04:25:49', '2022-05-07 04:25:49'),
+	(99, 'Menu 123123123', 'menu-123123123', 'header', 0, 1, 0, 1, 1, 'us', '2022-05-07 04:26:38', '2022-05-07 04:26:38');
+/*!40000 ALTER TABLE `menu` ENABLE KEYS */;
 
 -- Dumping structure for table bootphp.migrations
 CREATE TABLE IF NOT EXISTS `migrations` (
@@ -633,51 +673,69 @@ CREATE TABLE IF NOT EXISTS `settings` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `key` varchar(250) DEFAULT NULL,
   `value` text,
+  `type` varchar(50) DEFAULT 'primary',
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `key` (`key`)
-) ENGINE=InnoDB AUTO_INCREMENT=67 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=68 DEFAULT CHARSET=utf8;
 
--- Dumping data for table bootphp.settings: ~35 rows (approximately)
+-- Dumping data for table bootphp.settings: ~27 rows (approximately)
 /*!40000 ALTER TABLE `settings` DISABLE KEYS */;
-INSERT INTO `settings` (`id`, `key`, `value`, `created_at`, `updated_at`) VALUES
-	(1, 'favicon', '/storage/userfiles/images/nencer-fav.png', NULL, '2020-05-15 15:50:21'),
-	(2, 'backendlogo', '/storage/userfiles/images/nencer-logo-gray.png', NULL, '2020-05-15 15:50:21'),
-	(3, 'logo', '/storage/userfiles/images/nencer-logo.png', NULL, '2020-05-15 15:50:21'),
-	(4, 'company_shortname', 'NENCER JSC.,', NULL, '2021-11-20 15:09:11'),
-	(5, 'company_description', 'Đại lý thẻ điện thoại, thẻ game trực tuyến, nạp tiền điện thoại. Thanh toán tự động, nhanh chóng và uy tín.', NULL, '2021-11-20 15:09:11'),
-	(6, 'language', 'vi', NULL, '2020-05-15 10:46:47'),
-	(7, 'phone', '09454545455', NULL, '2020-05-15 10:46:35'),
-	(8, 'twitter', 'fb.com/admin', NULL, '2019-09-22 18:48:51'),
-	(9, 'email', 'nguyennghia@nencer.net', NULL, '2020-05-15 10:46:35'),
-	(10, 'facebook', 'fb.com/admin', NULL, '2019-09-22 18:48:51'),
-	(11, 'company_name', 'CÔNG TY PHẦN MỀM NENCER', NULL, '2020-04-28 03:48:39'),
-	(12, 'hotline', '1900 1565', NULL, '2020-05-15 10:46:35'),
-	(15, 'copyright', 'Software by Nencer Jsc.,', NULL, '2020-05-15 10:48:17'),
-	(16, 'timezone', 'Asia/Ho_Chi_Minh', NULL, '2020-05-15 10:47:56'),
-	(18, 'websitestatus', 'ONLINE', NULL, '2020-05-15 10:46:35'),
-	(19, 'company_address', '35/45 Tran Thai Tong, Cau Giay, Ha Noi', '2018-08-19 16:53:44', '2020-04-28 03:48:39'),
-	(21, 'default_user_group', '2', '2018-08-19 17:06:25', '2020-04-06 17:16:28'),
-	(24, 'fronttemplate', 'default', NULL, '2020-04-27 17:17:43'),
-	(25, 'offline_mes', 'N/A', NULL, '2020-05-15 10:16:00'),
-	(26, 'youtube', 'https://www.youtube.com/watch?v=neCmEbI2VWg', NULL, '2019-09-22 18:48:51'),
-	(27, 'globalpopup', '1', NULL, '2022-03-20 14:41:21'),
-	(28, 'globalpopup_mes', '<p>Để đảm bảo an toàn&nbsp;cho tài khoản web khuyến nghị nên cài đặt bảo mật bằng MK có chữ viết hoa và số .</p>\r\n\r\n<p>Hỗ trợ quên thông tin tài khoản&nbsp;<strong>Liên Hệ FACEBOOK</strong>&nbsp;<br />\r\nCú pháp lấy lại MK : "NC MK" gửi 8077<br />\r\nCú pháp lấy lại MKC2 : "NC MKC2" gửi 8077</p>\r\n\r\n<p><strong>Các tài khoản nạp tiền từ TSR, ATM, MOMO&nbsp;vào&nbsp;</strong><strong>để rửa tiền, lợi dụng nhận tiền, lừa đảo,&nbsp;cờ bạc sẽ bị khóa v.v</strong></p>\r\n\r\n<p>Bán các loại thẻ điện thoại, thẻ game, thẻ carot,v.v cam kết giá luôn ưu đãi nhất thị trường.<br />\r\n<br />\r\n<strong>Đăng Ký&nbsp;Đại Lý, Đối Tác Miễn Phí Nhanh Gọn&nbsp;hợp tác lâu dài .</strong></p>', NULL, '2022-03-21 15:55:25'),
-	(30, 'google_analytic_id', 'U321312323', NULL, '2020-05-15 10:57:26'),
-	(31, 'header_js', NULL, NULL, '2020-05-15 10:57:51'),
-	(32, 'footer_js', NULL, NULL, '2020-05-15 10:57:51'),
-	(34, 'primary_color', '#0033ff', NULL, '2022-03-15 15:32:18'),
-	(35, 'slide_bg', '#0066ff', NULL, '2022-02-23 10:40:38'),
-	(36, 'secondary_color', '#ff9900', NULL, '2022-02-23 10:39:45'),
-	(41, 'approve_user', '0', NULL, '2020-04-06 17:16:28'),
-	(42, 'allow_register', '1', NULL, '2020-04-06 17:16:28'),
-	(55, 'telegram', '5454444', '2020-05-15 09:21:55', '2020-05-15 11:03:41'),
-	(61, 'facebook_app_id', '331763484027376', '2020-05-15 11:17:47', '2020-05-15 11:17:47'),
-	(62, 'facebook_app_secret', '5f37b6bbc4cfc09b5f6e1f59402d99d8', '2020-05-15 11:18:06', '2020-05-15 11:18:06'),
-	(64, 'telegram_token', '1347881070:AAHsmGtEXeflGtU38z35liQffwqdT2CP7ak', '2021-09-15 18:45:46', '2021-09-15 18:45:46'),
-	(65, 'telegram_chat_id', 'chat id ở đây', '2022-03-15 15:03:43', '2022-03-15 15:03:43');
+INSERT INTO `settings` (`id`, `key`, `value`, `type`, `created_at`, `updated_at`) VALUES
+	(1, 'favicon', '/storage/userfiles/images/nencer-fav.png', 'primary', NULL, '2020-05-15 15:50:21'),
+	(2, 'backendlogo', '/storage/userfiles/images/nencer-logo-gray.png', 'primary', NULL, '2020-05-15 15:50:21'),
+	(3, 'logo', '/storage/userfiles/images/nencer-logo.png', 'primary', NULL, '2020-05-15 15:50:21'),
+	(4, 'company_shortname', 'NENCER JSC.,', 'primary', NULL, '2021-11-20 15:09:11'),
+	(5, 'company_description', 'Đại lý thẻ điện thoại, thẻ game trực tuyến, nạp tiền điện thoại. Thanh toán tự động, nhanh chóng và uy tín.', 'primary', NULL, '2021-11-20 15:09:11'),
+	(6, 'language', 'us', 'primary', NULL, '2022-05-07 07:58:41'),
+	(7, 'phone', '09454545455', 'primary', NULL, '2020-05-15 10:46:35'),
+	(8, 'twitter', 'fb.com/admin', 'primary', NULL, '2019-09-22 18:48:51'),
+	(9, 'email', 'nguyennghia@nencer.net', 'primary', NULL, '2020-05-15 10:46:35'),
+	(10, 'facebook', 'fb.com/admin', 'primary', NULL, '2019-09-22 18:48:51'),
+	(11, 'company_name', 'CÔNG TY PHẦN MỀM NENCER JSC', 'primary', NULL, '2022-05-07 07:58:50'),
+	(12, 'hotline', '1900 1565', 'primary', NULL, '2020-05-15 10:46:35'),
+	(15, 'copyright', 'Software by Nencer Jsc.,', 'primary', NULL, '2020-05-15 10:48:17'),
+	(16, 'timezone', 'Asia/Ho_Chi_Minh', 'primary', NULL, '2020-05-15 10:47:56'),
+	(18, 'websitestatus', 'ONLINE', 'primary', NULL, '2020-05-15 10:46:35'),
+	(19, 'company_address', '35/45 Tran Thai Tong, Cau Giay, Ha Noi', 'primary', '2018-08-19 16:53:44', '2020-04-28 03:48:39'),
+	(21, 'default_user_group', '2', 'primary', '2018-08-19 17:06:25', '2020-04-06 17:16:28'),
+	(24, 'fronttemplate', 'default', 'primary', NULL, '2020-04-27 17:17:43'),
+	(25, 'offline_mes', 'N/A', 'primary', NULL, '2020-05-15 10:16:00'),
+	(26, 'youtube', 'https://www.youtube.com/watch?v=neCmEbI2VWg', 'primary', NULL, '2019-09-22 18:48:51'),
+	(27, 'globalpopup', '1', 'primary', NULL, '2022-03-20 14:41:21'),
+	(28, 'globalpopup_mes', '<p>Để đảm bảo an toàn&nbsp;cho tài khoản web khuyến nghị nên cài đặt bảo mật bằng MK có chữ viết hoa và số .</p>\r\n\r\n<p>Hỗ trợ quên thông tin tài khoản&nbsp;<strong>Liên Hệ FACEBOOK</strong>&nbsp;<br />\r\nCú pháp lấy lại MK : "NC MK" gửi 8077<br />\r\nCú pháp lấy lại MKC2 : "NC MKC2" gửi 8077</p>\r\n\r\n<p><strong>Các tài khoản nạp tiền từ TSR, ATM, MOMO&nbsp;vào&nbsp;</strong><strong>để rửa tiền, lợi dụng nhận tiền, lừa đảo,&nbsp;cờ bạc sẽ bị khóa v.v</strong></p>\r\n\r\n<p>Bán các loại thẻ điện thoại, thẻ game, thẻ carot,v.v cam kết giá luôn ưu đãi nhất thị trường.<br />\r\n<br />\r\n<strong>Đăng Ký&nbsp;Đại Lý, Đối Tác Miễn Phí Nhanh Gọn&nbsp;hợp tác lâu dài .</strong></p>', 'primary', NULL, '2022-03-21 15:55:25'),
+	(30, 'google_analytic_id', 'U321312323', 'primary', NULL, '2020-05-15 10:57:26'),
+	(31, 'header_js', NULL, 'primary', NULL, '2020-05-15 10:57:51'),
+	(32, 'footer_js', NULL, 'primary', NULL, '2020-05-15 10:57:51'),
+	(55, 'telegram', '5454444', 'primary', '2020-05-15 09:21:55', '2020-05-15 11:03:41'),
+	(67, 'facebook_id', '123456 32435445', 'custom', '2022-05-07 08:30:47', '2022-05-07 08:33:31');
 /*!40000 ALTER TABLE `settings` ENABLE KEYS */;
+
+-- Dumping structure for table bootphp.sliders
+CREATE TABLE IF NOT EXISTS `sliders` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `slider_name` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `slider_image` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `slider_text` text COLLATE utf8_unicode_ci,
+  `slider_url` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `slider_btn_text` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `slider_btn_url` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `sort_order` int(11) DEFAULT '0',
+  `status` tinyint(2) DEFAULT '1',
+  `app` tinyint(2) DEFAULT '1',
+  `lang` varchar(50) COLLATE utf8_unicode_ci DEFAULT 'vi',
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+-- Dumping data for table bootphp.sliders: ~2 rows (approximately)
+/*!40000 ALTER TABLE `sliders` DISABLE KEYS */;
+INSERT INTO `sliders` (`id`, `slider_name`, `slider_image`, `slider_text`, `slider_url`, `slider_btn_text`, `slider_btn_url`, `sort_order`, `status`, `app`, `lang`, `created_at`, `updated_at`) VALUES
+	(7, 'Giao diện BlueZim - Mùa đông xanh', '/storage/userfiles/images/slider/bannerb.jpg', 'Cho rằng VEC không phối hợp giải quyết vướng mắc sau thông xe cao tốc, Quảng Ngãi cảnh báo Bộ Giao thông khả năng người dân chặn đường.', NULL, 'Mua ngay', '#', 2, 0, 1, 'us', '2018-10-05 20:57:39', '2022-03-15 15:39:58'),
+	(8, 'Đổi thẻ cào', '/storage/userfiles/images/slider/doithecao.png', 'Nạp ƯU ĐÃI trả trước, trả sau Vinaphone, Mobifone, Viettel chiết khấu từ 15-20% sau 10 phút sẽ thành công (không có khuyến mãi).', NULL, 'Nạp ngay', NULL, 2, 0, 1, 'vi', '2018-10-19 18:36:17', '2022-03-15 15:40:15');
+/*!40000 ALTER TABLE `sliders` ENABLE KEYS */;
 
 -- Dumping structure for table bootphp.users
 CREATE TABLE IF NOT EXISTS `users` (

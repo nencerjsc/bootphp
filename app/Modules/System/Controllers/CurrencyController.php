@@ -1,10 +1,10 @@
 <?php
 
-namespace App\Modules\Currency\Controllers;
+namespace App\Modules\System\Controllers;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use App\Modules\Currency\Models\Currencies;
+use App\Modules\System\Models\Currencies;
 use DB;
 
 class CurrencyController extends Controller
@@ -22,14 +22,14 @@ class CurrencyController extends Controller
      */
     public function index(Request $request)
     {
-        $title = 'Tiền tệ';
+        $title = 'Currency';
         $currencies = Currencies::orderBy('id', 'DESC')->paginate(25);
         if ($request->input('keyword')) {
             $keyword = $request->input('keyword');
             $title = "Search: " . $keyword;
             $currencies = Currencies::where('name', 'LIKE', '%' . $keyword . '%')->orderBy('id', 'DESC')->paginate(10);
         }
-        return view('Currency::index', compact('currencies', 'title'));
+        return view('System::currency.index', compact('currencies', 'title'));
     }
 
 
@@ -44,7 +44,7 @@ class CurrencyController extends Controller
         foreach ($currencyList as $icurrency) {
             $lsCurrency[$icurrency->code] = $icurrency->code . ' - ' . $icurrency->name;
         }
-        return view('Currency::create', compact('lsCurrency'));
+        return view('System::currency.create', compact('lsCurrency'));
     }
 
 
@@ -102,7 +102,7 @@ class CurrencyController extends Controller
             foreach ($currencyList as $icurrency) {
                 $lsCurrency[$icurrency->code] = $icurrency->code . ' - ' . $icurrency->name;
             }
-            return view('Currency::edit', compact('currency', 'lsCurrency'));
+            return view('System::currency.edit', compact('currency', 'lsCurrency'));
         } else {
             return null;
         }

@@ -1,13 +1,13 @@
 <?php
 
-namespace App\Modules\Sliders\Controllers;
+namespace App\Modules\System\Controllers;
 
 use App\Http\Controllers\Controller;
 use App\Modules\Language\Models\Language;
 use Illuminate\Http\Request;
 use Auth;
 use View;
-use App\Modules\Sliders\Models\Sliders;
+use App\Modules\System\Models\Sliders;
 use Storage;
 
 class SlidersController extends Controller
@@ -15,13 +15,13 @@ class SlidersController extends Controller
     public function index(Request $request)
     {
         $sliders = Sliders::orderBy('id', 'DESC')->paginate(10);
-        return view("Sliders::index", compact('sliders'));
+        return view("System::slider.index", compact('sliders'));
     }
 
     public function create()
     {
         $langs = Language::all();
-        return view('Sliders::create', compact('langs'));
+        return view('System::slider.create', compact('langs'));
     }
 
     public function store(Request $request)
@@ -45,7 +45,7 @@ class SlidersController extends Controller
     {
         $slider = Sliders::find($id);
         $langs = Language::orderBy('default', 'desc')->get();
-        return view('Sliders::edit', compact('slider', 'langs'));
+        return view('System::slider.edit', compact('slider', 'langs'));
     }
 
     public function update(Request $request, $id)

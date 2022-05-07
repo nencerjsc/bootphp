@@ -10,6 +10,9 @@ Route::group(['module'=>'System', 'namespace' => '\App\Modules\System\Controller
         Route::resource('roles','RoleController');
         Route::resource('permissions','PermissionController');
         Route::post('/ajax', 'BackendController@updateToggle');
+        Route::resource('sliders','SlidersController');
+        Route::resource('currencies','CurrencyController');
+        Route::post('currencies/actions','CurrencyController@actions');
     });
 
     //Frontend
@@ -66,20 +69,18 @@ Route::group(['module'=>'Language', 'namespace' => '\App\Modules\Language\Contro
         Route::get('/language/{key}/del',['as'=>'backend.language.trans.delkey', 'uses'=> 'LanguageController@deleteKey']);
     });
 });
-// Currency
-Route::group(['module'=>'Currency', 'namespace' => '\App\Modules\Currency\Controllers'], function () use ($admin_prefix) {
-    //Backend
-    Route::group(['prefix'=>$admin_prefix, 'middleware' =>['auth','role:BACKEND']], function () {
-        Route::resource('currencies','CurrencyController');
-        Route::post('currencies/actions','CurrencyController@actions');
+
+// FrontEnd
+Route::group(['module'=>'Frontend', 'namespace' => '\App\Modules\Frontend\Controllers'], function () use ($admin_prefix) {
+    //Frontend
+    Route::group(['middleware' =>['web']], function () {
+        Route::get('/', 'FrontendController@index');
     });
 });
 //slider
 Route::group(['module'=>'Sliders', 'namespace' => '\App\Modules\Sliders\Controllers'], function () use ($admin_prefix) {
     //Backend
-    Route::group(['prefix'=>$admin_prefix, 'middleware' =>['auth','role:BACKEND']], function () {
-        Route::resource('sliders','SlidersController');
-    });
+
 });
 //news
 Route::group(['module'=>'News', 'namespace' => '\App\Modules\News\Controllers'], function () use ($admin_prefix) {
@@ -99,5 +100,21 @@ Route::group(['module'=>'News', 'namespace' => '\App\Modules\News\Controllers'],
         Route::get('news', ['as'=>'frontend.news.index', 'uses'=>'NewsFrontController@index']);
         Route::get('news/{news_slug}.html', ['as'=>'frontend.news.view', 'uses'=>'NewsFrontController@newsDetail']);
         Route::get('news/{category_slug}', ['as'=>'frontend.news_category.view', 'uses'=>'NewsFrontController@renderNewsCategory']);
+    });
+});
+// menu
+Route::group(['module'=>'Menu', 'namespace' => '\App\Modules\Menu\Controllers'], function () use ($admin_prefix) {
+    //Backend
+    Route::group(['prefix'=>$admin_prefix, 'middleware' =>['auth','role:BACKEND']], function () {
+        Route::resource('menu','MenuController');
+    });
+});
+Route::group(['module'=>'Setting', 'namespace' => '\App\Modules\Setting\Controllers'], function () use ($admin_prefix) {
+    //Backend
+    Route::group(['prefix'=>$admin_prefix, 'middleware' =>['auth','role:BACKEND']], function () {
+        Route::resource('settings','SettingController');
+        Route::get('setting/create-key','SettingController@createSetting')->name('setting.create.key');;
+        Route::post('setting/create-key','SettingController@postSetting')->name('setting.create.key');
+        Route::get('clear-cache','SettingController@clearCache')->name('setting.clear.cache');
     });
 });

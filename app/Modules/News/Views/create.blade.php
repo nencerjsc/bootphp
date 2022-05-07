@@ -1,6 +1,17 @@
 @extends('System::backend.layouts.master')
 
 @section('content')
+    <script src="{{ asset('adminlte/plugins/ckeditor4101/ckeditor.js') }}"></script>
+    <script>
+        $(function () {
+            CKEDITOR.replace('description', {
+                filebrowserBrowseUrl: '{{ url(env('BACKEND_URI').'/ckfinderpopup') }}',
+                filebrowserImageBrowseUrl: '{{ url(env('BACKEND_URI').'/ckfinderpopup') }}',
+                filebrowserFlashBrowseUrl: '{{ url(env('BACKEND_URI').'/ckfinderpopup') }}',
+            });
+            CKEDITOR.config.extraPlugins = 'justify , colorbutton';
+        });
+    </script>
     <div class="content-wrapper">
         <div class="content-header">
             <div class="container-fluid">
