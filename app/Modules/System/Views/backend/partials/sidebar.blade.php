@@ -40,31 +40,12 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a href="{{route('menu.index')}}" class="nav-link @if(route('menu.index') == url()->current()) active @endif">
-                        <i class="nav-icon fas fa-list"></i>
-                        <p>
-                            Menu
-                        </p>
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a href="{{ route('currencies.index') }}" class="nav-link @if(route('currencies.index') == url()->current()) active @endif">
-                        <i class="nav-icon fas fa-money-bill-alt"></i>
-                        <p>Currencies </p>
-                    </a>
-                </li>
-                <li class="nav-item">
                     <a href="{{ route('backend.language.setting') }}" class="nav-link @if(route('backend.language.setting') == url()->current()) active @endif">
                         <i class="nav-icon fas fa-language"></i>
                         <p>Language </p>
                     </a>
                 </li>
-                <li class="nav-item">
-                    <a href="{{ route('settings.index') }}" class="nav-link @if(route('settings.index') == url()->current()) active @endif">
-                        <i class="nav-icon fas fa-cog"></i>
-                        <p>Setting </p>
-                    </a>
-                </li>
+
                 <li class="nav-item has-treeview">
                     <a href="#" class="nav-link">
                         <i class="nav-icon fas fa-users"></i>
@@ -98,6 +79,38 @@
                     <a href="{{ route('sliders.index') }}" class="nav-link">
                         <i class="nav-icon fas fa-images"></i>
                         <p>Sliders</p>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="{{ route('pages.index') }}" class="nav-link">
+                        <i class="nav-icon fas fa-pager"></i>
+                        <p>Page</p>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="#" class="nav-link">
+                        <i class="nav-icon fas fa-list"></i>
+                        <p>System  <i class="fas fa-angle-left right"></i></p>
+                    </a>
+                    <ul class="nav nav-treeview">
+                        <li class="nav-item">
+                            <a href="{{ route('currencies.index') }}" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>Currencies</p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="{{route('menu.index')}}" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>Menu</p>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+                <li class="nav-item">
+                    <a href="{{ route('settings.index') }}" class="nav-link @if(route('settings.index') == url()->current()) active @endif">
+                        <i class="nav-icon fas fa-cog"></i>
+                        <p>Setting </p>
                     </a>
                 </li>
             </ul>

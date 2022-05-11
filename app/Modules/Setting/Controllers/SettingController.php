@@ -88,7 +88,6 @@ class SettingController extends Controller
 
     public function postSetting(Request $request)
     {
-
         $this->validate($request, [
             'key' => 'required|unique:settings',
             'value' => 'required',

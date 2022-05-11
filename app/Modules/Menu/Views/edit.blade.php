@@ -54,8 +54,6 @@
                                                                    placeholder="Đường dẫn url" value="{{ $menu->url }}">
                                                         </div>
                                                     </div>
-
-
                                                     <div class="form-group row">
                                                         <div class="col-md-6">
                                                             <label for="author">Type:</label>
@@ -63,7 +61,6 @@
                                                                 <option value="">-- Select menu type --</option>
                                                                 <option value="header" @if(isset($menu) && $menu->menu_type== "header") selected="selected" @endif> Header </option>
                                                                 <option value="footer" @if(isset($menu) && $menu->menu_type== "footer") selected="selected" @endif> Footer </option>
-
                                                             </select>
                                                         </div>
                                                         <div class="col-md-6">
@@ -85,7 +82,7 @@
                                                             <select class="form-control" name="language">
                                                                 @if(count($langs) > 0)
                                                                     @foreach($langs as $lang)
-                                                                        <option value="{{$lang->code}}" @if($menu->language == $lang->code) selected @endif>{{$lang->name}}</option>
+                                                                        <option value="{{ $lang->code }}" @if($menu->language == $lang->code) selected @endif>{{  $lang->name }}</option>
                                                                     @endforeach
                                                                 @endif
                                                             </select>

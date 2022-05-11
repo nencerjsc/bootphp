@@ -149,7 +149,7 @@
                                                             <td>
                                                                 <div class="action-buttons">
                                                                     <a href="{{ url($backendUrl.'/menu/'.$post->id.'/edit') }}">
-                                                                    <span class="btn btn-sm btn-warning"> <i title="Sửa"
+                                                                    <span class="btn btn-sm btn-warning"> <i title="Edit"
                                                                                                              class="ace-icon fas fa-pen mr-0"></i> </span>
                                                                     </a>
                                                                     <a href="#" name="{{ $post->name }}"

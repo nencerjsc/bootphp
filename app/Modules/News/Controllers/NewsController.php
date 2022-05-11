@@ -3,7 +3,6 @@
 namespace App\Modules\News\Controllers;
 
 use App\Http\Controllers\Controller;
-use App\Modules\Backend\Models\Permission;
 use App\Modules\Language\Models\Language;
 use \App\Modules\News\Models\NewsCategory;
 use Illuminate\Http\Request;

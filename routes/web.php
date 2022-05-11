@@ -13,6 +13,7 @@ Route::group(['module'=>'System', 'namespace' => '\App\Modules\System\Controller
         Route::resource('sliders','SlidersController');
         Route::resource('currencies','CurrencyController');
         Route::post('currencies/actions','CurrencyController@actions');
+        Route::resource('seo','SeoController');
     });
 
     //Frontend
@@ -27,6 +28,7 @@ Route::group(['module'=>'User', 'namespace' => '\App\Modules\User\Controllers'],
     //Backend
     Route::group(['prefix'=>$admin_prefix, 'middleware' =>['auth','role:BACKEND']], function () {
         Route::resource('users','UserController');
+        Route::resource('groups','GroupControler');
         Route::post('users/action','UserController@actions')->name('users.action.post');
     });
 
@@ -71,16 +73,18 @@ Route::group(['module'=>'Language', 'namespace' => '\App\Modules\Language\Contro
 });
 
 // FrontEnd
-Route::group(['module'=>'Frontend', 'namespace' => '\App\Modules\Frontend\Controllers'], function () use ($admin_prefix) {
+Route::group(['module'=>'Frontend', 'namespace' => '\App\Modules\System\Controllers'], function () use ($admin_prefix) {
     //Frontend
     Route::group(['middleware' =>['web']], function () {
         Route::get('/', 'FrontendController@index');
     });
 });
 //slider
-Route::group(['module'=>'Sliders', 'namespace' => '\App\Modules\Sliders\Controllers'], function () use ($admin_prefix) {
+Route::group(['module'=>'Page', 'namespace' => '\App\Modules\Page\Controllers'], function () use ($admin_prefix) {
     //Backend
-
+    Route::group(['prefix'=>$admin_prefix, 'middleware' =>['auth','role:BACKEND']], function () {
+        Route::resource('pages', 'PageController');
+    });
 });
 //news
 Route::group(['module'=>'News', 'namespace' => '\App\Modules\News\Controllers'], function () use ($admin_prefix) {

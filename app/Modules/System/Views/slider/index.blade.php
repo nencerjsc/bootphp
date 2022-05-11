@@ -120,8 +120,7 @@
                                                         <td>
                                                             <div class="action-buttons">
                                                                 <a href="{{ url($backendUrl.'/sliders/'.$slide->id.'/edit') }}">
-                                                                    <span class="btn btn-sm btn-warning"> <i title="Sửa"
-                                                                                                             class="ace-icon fa fa-pen mr-0"></i> </span>
+                                                                    <span class="btn btn-sm btn-warning"> <i title="Edit" class="ace-icon fa fa-pen mr-0"></i> </span>
                                                                 </a>
                                                                 <a href="#" name="{{ $slide->slider_name }}"
                                                                    link="{{ url($backendUrl.'/sliders/'.$slide->id) }}"

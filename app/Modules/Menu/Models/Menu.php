@@ -30,7 +30,5 @@ class Menu extends Model
 		// 'updated_at',
     ];
 
-    public function childs() {
-        return $this->hasMany('App\Modules\Menu\Models\Menu','parent_id','id') ;
-    }
+
 }

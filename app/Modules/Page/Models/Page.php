@@ -1,11 +1,11 @@
 <?php
 
-namespace App\Modules\Setting\Models;
+namespace App\Modules\Page\Models;
 
 use Spatie\Permission\Traits\HasRoles;
 use Illuminate\Database\Eloquent\Model;
 
-class Settingmeta extends Model
+class Page extends Model
 {
     use HasRoles;
 
@@ -14,17 +14,20 @@ class Settingmeta extends Model
      *
      * @var array
      */
-
-    protected $table = 'settings_meta';
     protected $fillable = [
-
-        'meta_title',
-        'meta_description',
-        'meta_keywords',
+        'title',
+        'slug',
         'description',
+        'html_description',
+        'image',
+        'author_email',
         'language',
-        'h1',
-        'module'
-
+        'status',
+        'meta',
     ];
+
+    protected $casts = [
+        'meta' => 'array'
+    ];
+
 }
