@@ -79,7 +79,7 @@ CREATE TABLE IF NOT EXISTS `currencies` (
   `updated_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `currencies_status_index` (`status`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- Dumping data for table bootphp.currencies: ~0 rows (approximately)
 /*!40000 ALTER TABLE `currencies` DISABLE KEYS */;
@@ -283,7 +283,7 @@ CREATE TABLE IF NOT EXISTS `languages` (
   `updated_at` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`),
   UNIQUE KEY `code` (`code`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
 
 -- Dumping data for table bootphp.languages: ~0 rows (approximately)
 /*!40000 ALTER TABLE `languages` DISABLE KEYS */;
@@ -395,7 +395,7 @@ CREATE TABLE IF NOT EXISTS `menu` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=100 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
--- Dumping data for table bootphp.menu: ~18 rows (approximately)
+-- Dumping data for table bootphp.menu: ~16 rows (approximately)
 /*!40000 ALTER TABLE `menu` DISABLE KEYS */;
 INSERT INTO `menu` (`id`, `name`, `url`, `menu_type`, `parent_id`, `level`, `children_count`, `sort_order`, `status`, `language`, `created_at`, `updated_at`) VALUES
 	(60, 'Mua mã thẻ', '/card', 'header', 0, 1, 0, 1, 1, 'vi', '2018-08-05 05:16:17', '2021-10-06 22:49:06'),
@@ -562,7 +562,7 @@ CREATE TABLE IF NOT EXISTS `orders` (
   UNIQUE KEY `order_code` (`order_code`),
   KEY `payer_id` (`payer_id`),
   KEY `payee_id` (`payee_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=20 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 -- Dumping data for table bootphp.orders: ~0 rows (approximately)
 /*!40000 ALTER TABLE `orders` DISABLE KEYS */;
@@ -587,7 +587,7 @@ CREATE TABLE IF NOT EXISTS `pages` (
 -- Dumping data for table bootphp.pages: ~2 rows (approximately)
 /*!40000 ALTER TABLE `pages` DISABLE KEYS */;
 INSERT INTO `pages` (`id`, `title`, `slug`, `meta`, `image`, `status`, `description`, `html_description`, `language`, `created_at`, `updated_at`) VALUES
-	(1, 'Điểu khoản sử dụng3', 'dieu-khoan-su-dung3', '{"title":"23423","description":"4234","keyword":"23423434"}', NULL, 1, '<p>&nbsp;rwerwe wer we rêr wwwwwwwwwwwwwwwwwwwww</p>', NULL, 'vi', '2019-08-30 11:36:22', '2020-05-11 08:05:17'),
+	(1, 'Điểu khoản sử dụng3', 'dieu-khoan-su-dung3', '{"title":"23423","description":"4234","keyword":"23423434"}', NULL, 1, '<p>&nbsp;rwerwe wer we rêr wwwwwwwwwwwwwwwwwwwww</p>', 'sấdasdasđfdf', 'us', '2019-08-30 11:36:22', '2022-05-11 07:49:09'),
 	(2, 'Bán thẻ game, thẻ điện thoại, đổi thẻ cào, nạp cước', 'ban-the-game-the-dien-thoai-doi-the-cao-nap-cuoc', NULL, NULL, 1, '<p>23423423423423</p>', '32423 4234 23', 'vi', '2020-05-11 07:49:22', '2020-05-11 07:49:22');
 /*!40000 ALTER TABLE `pages` ENABLE KEYS */;
 
@@ -668,6 +668,27 @@ INSERT INTO `role_has_permissions` (`permission_id`, `role_id`) VALUES
 	(5, 2);
 /*!40000 ALTER TABLE `role_has_permissions` ENABLE KEYS */;
 
+-- Dumping structure for table bootphp.seo
+CREATE TABLE IF NOT EXISTS `seo` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `link` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `meta` text COLLATE utf8_unicode_ci,
+  `image` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `lang` varchar(50) COLLATE utf8_unicode_ci DEFAULT 'vi',
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `link` (`link`)
+) ENGINE=InnoDB AUTO_INCREMENT=17 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+-- Dumping data for table bootphp.seo: ~2 rows (approximately)
+/*!40000 ALTER TABLE `seo` DISABLE KEYS */;
+INSERT INTO `seo` (`id`, `link`, `meta`, `image`, `lang`, `created_at`, `updated_at`) VALUES
+	(1, '/', '{"title":"Mua b\\u00e1n th\\u1ebb \\u0111i\\u1ec7n tho\\u1ea1i, th\\u1ebb game, n\\u1ea1p ti\\u1ec1n topup","description":"\\u0110\\u1ea1i l\\u00fd th\\u1ebb \\u0111i\\u1ec7n tho\\u1ea1i Viettel, Vinaphone, Mobifone, th\\u1ebb game online Pubg, zing, Vcoin, Gate, Carot, Garena, V\\u00f5 l\\u00e2m, li\\u00ean qu\\u00e2n mobile.","keyword":"th\\u1ebb \\u0111i\\u1ec7n tho\\u1ea1i Viettel, Vinaphone, Mobifone, th\\u1ebb game online Pubg, zing, Vcoin, Gate, Carot, Garena, V\\u00f5 l\\u00e2m, li\\u00ean qu\\u00e2n"}', '/storage/userfiles/images/a.jpg', 'vi', '2020-05-15 16:03:24', '2020-05-15 17:19:28'),
+	(15, '/mtopup', '{"title":"N\\u1ea1p ti\\u1ec1n \\u0111i\\u1ec7n tho\\u1ea1i, topup gi\\u00e1 r\\u1ebb","description":"N\\u1ea1p ti\\u1ec1n \\u0111i\\u1ec7n tho\\u1ea1i, topup gi\\u00e1 r\\u1ebb","keyword":"N\\u1ea1p ti\\u1ec1n \\u0111i\\u1ec7n tho\\u1ea1i, topup gi\\u00e1 r\\u1ebb"}', NULL, 'vi', '2020-05-15 17:25:25', '2020-05-15 17:25:25'),
+	(16, '/admincp', '{"title":"THI\\u1ebeT K\\u1ebe WEBSITE TH\\u00d4NG MINH, \\u1ee8NG D\\u1ee4NG DI \\u0110\\u1ed8NG - NENCER","description":"THI\\u1ebeT K\\u1ebe WEBSITE TH\\u00d4NG MINH, \\u1ee8NG D\\u1ee4NG DI \\u0110\\u1ed8NG - NENCER","keyword":"THI\\u1ebeT K\\u1ebe WEBSITE TH\\u00d4NG MINH, \\u1ee8NG D\\u1ee4NG DI \\u0110\\u1ed8NG - NENCER"}', NULL, 'us', '2022-05-11 09:32:55', '2022-05-11 09:32:55');
+/*!40000 ALTER TABLE `seo` ENABLE KEYS */;
+
 -- Dumping structure for table bootphp.settings
 CREATE TABLE IF NOT EXISTS `settings` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
@@ -680,7 +701,7 @@ CREATE TABLE IF NOT EXISTS `settings` (
   UNIQUE KEY `key` (`key`)
 ) ENGINE=InnoDB AUTO_INCREMENT=68 DEFAULT CHARSET=utf8;
 
--- Dumping data for table bootphp.settings: ~27 rows (approximately)
+-- Dumping data for table bootphp.settings: ~26 rows (approximately)
 /*!40000 ALTER TABLE `settings` DISABLE KEYS */;
 INSERT INTO `settings` (`id`, `key`, `value`, `type`, `created_at`, `updated_at`) VALUES
 	(1, 'favicon', '/storage/userfiles/images/nencer-fav.png', 'primary', NULL, '2020-05-15 15:50:21'),
@@ -748,13 +769,9 @@ CREATE TABLE IF NOT EXISTS `users` (
   `gender` varchar(8) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `avatar` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `group` int(11) DEFAULT NULL,
-  `api_token` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `api_token_created` timestamp NULL DEFAULT NULL,
   `tmp` varchar(250) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `tmp_token` varchar(250) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `parent_id` int(11) DEFAULT NULL,
-  `_lft` int(11) unsigned DEFAULT NULL,
-  `_rgt` int(11) unsigned DEFAULT NULL,
   `currency_code` varchar(50) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `language` varchar(100) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `twofactor` varchar(100) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
@@ -770,10 +787,10 @@ CREATE TABLE IF NOT EXISTS `users` (
 
 -- Dumping data for table bootphp.users: ~3 rows (approximately)
 /*!40000 ALTER TABLE `users` DISABLE KEYS */;
-INSERT INTO `users` (`id`, `name`, `email`, `email_verified_at`, `password`, `remember_token`, `gender`, `avatar`, `group`, `api_token`, `api_token_created`, `tmp`, `tmp_token`, `parent_id`, `_lft`, `_rgt`, `currency_code`, `language`, `twofactor`, `twofactor_secret`, `ref`, `status`, `birthday`, `created_at`, `updated_at`) VALUES
-	(1, 'God Admin', 'support@nencer.com', NULL, '$2y$10$fhFgzGTdBpUlCu.iH8F/4.t4KkZlOsIMdGQCdbrgFbgDQfDSG6EiW', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, '2020-02-29 17:07:49', '2020-02-29 17:07:49'),
-	(2, 'Nguyen Neo', 'hotronet@gmail.com', NULL, '$2y$10$7tonzQ.wyvrHuLDmuYRC/eE36.tgAB4Fy19m7iospMPSh7/0/FH0u', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, '2020-03-01 06:41:31', '2020-03-01 06:41:31'),
-	(3, 'kythuat', 'kythuat@gmail.com', NULL, '$2y$10$bQTnKqnE48oKWUsqv5GgAO5FFslbLm4yFiBL5er46b/IPYKnJZ0Ja', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, '2021-12-04 03:22:08', '2021-12-04 03:22:08');
+INSERT INTO `users` (`id`, `name`, `email`, `email_verified_at`, `password`, `remember_token`, `gender`, `avatar`, `group`, `tmp`, `tmp_token`, `parent_id`, `currency_code`, `language`, `twofactor`, `twofactor_secret`, `ref`, `status`, `birthday`, `created_at`, `updated_at`) VALUES
+	(1, 'God Admin', 'support@nencer.com', NULL, '$2y$10$fhFgzGTdBpUlCu.iH8F/4.t4KkZlOsIMdGQCdbrgFbgDQfDSG6EiW', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, '2020-02-29 17:07:49', '2020-02-29 17:07:49'),
+	(2, 'Nguyen Neo', 'hotronet@gmail.com', NULL, '$2y$10$7tonzQ.wyvrHuLDmuYRC/eE36.tgAB4Fy19m7iospMPSh7/0/FH0u', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, '2020-03-01 06:41:31', '2020-03-01 06:41:31'),
+	(3, 'kythuat', 'kythuat@gmail.com', NULL, '$2y$10$bQTnKqnE48oKWUsqv5GgAO5FFslbLm4yFiBL5er46b/IPYKnJZ0Ja', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, '2021-12-04 03:22:08', '2021-12-04 03:22:08');
 /*!40000 ALTER TABLE `users` ENABLE KEYS */;
 
 -- Dumping structure for table bootphp.user_credits
@@ -825,7 +842,7 @@ CREATE TABLE IF NOT EXISTS `user_groups` (
 -- Dumping data for table bootphp.user_groups: ~3 rows (approximately)
 /*!40000 ALTER TABLE `user_groups` DISABLE KEYS */;
 INSERT INTO `user_groups` (`id`, `name`, `description`, `status`, `hideit`, `created_at`, `updated_at`) VALUES
-	(1, 'Guest', 'Không phải thành viên', 1, 0, '2018-07-24 10:08:28', '2018-08-17 15:16:32'),
+	(1, 'Guest', 'Không phải thành viên', 1, 1, '2018-07-24 10:08:28', '2018-08-17 15:16:32'),
 	(2, 'Thành viên', 'Thành viên', 1, 1, '2018-07-24 10:08:23', '2018-08-17 15:15:29'),
 	(3, 'Đại lý', 'Đại lý', 1, 0, '2018-08-17 15:14:46', '2019-03-04 21:01:41');
 /*!40000 ALTER TABLE `user_groups` ENABLE KEYS */;
