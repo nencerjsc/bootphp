@@ -1,8 +1,8 @@
 -- --------------------------------------------------------
 -- Host:                         127.0.0.1
--- Server version:               5.7.25 - MySQL Community Server (GPL)
+-- Server version:               5.7.29 - MySQL Community Server (GPL)
 -- Server OS:                    Win64
--- HeidiSQL Version:             11.0.0.5919
+-- HeidiSQL Version:             11.0.0.5958
 -- --------------------------------------------------------
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
@@ -395,7 +395,7 @@ CREATE TABLE IF NOT EXISTS `menu` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=100 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
--- Dumping data for table bootphp.menu: ~16 rows (approximately)
+-- Dumping data for table bootphp.menu: ~18 rows (approximately)
 /*!40000 ALTER TABLE `menu` DISABLE KEYS */;
 INSERT INTO `menu` (`id`, `name`, `url`, `menu_type`, `parent_id`, `level`, `children_count`, `sort_order`, `status`, `language`, `created_at`, `updated_at`) VALUES
 	(60, 'Mua mã thẻ', '/card', 'header', 0, 1, 0, 1, 1, 'vi', '2018-08-05 05:16:17', '2021-10-06 22:49:06'),
@@ -534,23 +534,21 @@ CREATE TABLE IF NOT EXISTS `orders` (
   `order_type` varchar(50) COLLATE utf8_unicode_ci NOT NULL COMMENT 'Purchase',
   `module` varchar(50) COLLATE utf8_unicode_ci DEFAULT NULL,
   `currency_code` varchar(10) COLLATE utf8_unicode_ci NOT NULL,
-  `payer_id` int(11) NOT NULL,
-  `payee_id` int(11) NOT NULL,
-  `net_amount` double NOT NULL,
-  `fees` double NOT NULL,
-  `discount` double DEFAULT '0',
-  `pay_amount` double NOT NULL,
+  `net_amount` decimal(10,0) NOT NULL DEFAULT '0',
+  `fees` decimal(10,0) NOT NULL DEFAULT '0' COMMENT 'Order fees',
+  `pay_amount` decimal(10,0) NOT NULL,
+  `tax` decimal(10,0) NOT NULL DEFAULT '0',
+  `discount` decimal(10,0) DEFAULT NULL,
   `paygate_code` varchar(50) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `bank_info` text COLLATE utf8_unicode_ci,
+  `bank_info` text COLLATE utf8_unicode_ci COMMENT 'Receive information',
   `affiliate_code` varchar(50) COLLATE utf8_unicode_ci DEFAULT NULL,
   `status` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
   `payment` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
-  `shipment` int(11) DEFAULT NULL,
-  `shipment_info` text COLLATE utf8_unicode_ci,
+  `shipment_id` int(11) DEFAULT NULL,
   `description` text COLLATE utf8_unicode_ci,
   `admin_note` text COLLATE utf8_unicode_ci,
-  `ipaddress` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `payment_trans_id` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `ip` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `payment_id` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
   `token` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
   `client_info` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
   `reference` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
@@ -559,14 +557,30 @@ CREATE TABLE IF NOT EXISTS `orders` (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id`),
-  UNIQUE KEY `order_code` (`order_code`),
-  KEY `payer_id` (`payer_id`),
-  KEY `payee_id` (`payee_id`)
+  UNIQUE KEY `order_code` (`order_code`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 -- Dumping data for table bootphp.orders: ~0 rows (approximately)
 /*!40000 ALTER TABLE `orders` DISABLE KEYS */;
 /*!40000 ALTER TABLE `orders` ENABLE KEYS */;
+
+-- Dumping structure for table bootphp.order_logs
+CREATE TABLE IF NOT EXISTS `order_logs` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `order_code` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `note` text COLLATE utf8mb4_unicode_ci,
+  `staff_id` int(11) DEFAULT NULL,
+  `user_id` int(11) DEFAULT NULL,
+  `status` varchar(50) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `product_id` int(11) DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- Dumping data for table bootphp.order_logs: ~0 rows (approximately)
+/*!40000 ALTER TABLE `order_logs` DISABLE KEYS */;
+/*!40000 ALTER TABLE `order_logs` ENABLE KEYS */;
 
 -- Dumping structure for table bootphp.pages
 CREATE TABLE IF NOT EXISTS `pages` (
@@ -602,6 +616,33 @@ CREATE TABLE IF NOT EXISTS `password_resets` (
 -- Dumping data for table bootphp.password_resets: ~0 rows (approximately)
 /*!40000 ALTER TABLE `password_resets` DISABLE KEYS */;
 /*!40000 ALTER TABLE `password_resets` ENABLE KEYS */;
+
+-- Dumping structure for table bootphp.paygates
+CREATE TABLE IF NOT EXISTS `paygates` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `currency_id` int(11) NOT NULL,
+  `code` varchar(255) CHARACTER SET utf8 NOT NULL,
+  `name` varchar(255) CHARACTER SET utf8 NOT NULL,
+  `balance` varchar(50) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `avatar` varchar(255) CHARACTER SET utf8 DEFAULT NULL,
+  `configs` text CHARACTER SET utf8,
+  `input_fee_percent` double DEFAULT NULL,
+  `input_fee_fixed` double DEFAULT NULL,
+  `output_fee_percent` double DEFAULT NULL,
+  `output_fee_fixed` double DEFAULT NULL,
+  `status` tinyint(4) NOT NULL DEFAULT '0',
+  `allow_input` int(11) DEFAULT '1',
+  `allow_output` int(11) DEFAULT '1',
+  `canceltime` int(11) DEFAULT NULL,
+  `sort` int(11) DEFAULT '0',
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+-- Dumping data for table bootphp.paygates: ~0 rows (approximately)
+/*!40000 ALTER TABLE `paygates` DISABLE KEYS */;
+/*!40000 ALTER TABLE `paygates` ENABLE KEYS */;
 
 -- Dumping structure for table bootphp.permissions
 CREATE TABLE IF NOT EXISTS `permissions` (
@@ -681,7 +722,7 @@ CREATE TABLE IF NOT EXISTS `seo` (
   UNIQUE KEY `link` (`link`)
 ) ENGINE=InnoDB AUTO_INCREMENT=17 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
--- Dumping data for table bootphp.seo: ~2 rows (approximately)
+-- Dumping data for table bootphp.seo: ~3 rows (approximately)
 /*!40000 ALTER TABLE `seo` DISABLE KEYS */;
 INSERT INTO `seo` (`id`, `link`, `meta`, `image`, `lang`, `created_at`, `updated_at`) VALUES
 	(1, '/', '{"title":"Mua b\\u00e1n th\\u1ebb \\u0111i\\u1ec7n tho\\u1ea1i, th\\u1ebb game, n\\u1ea1p ti\\u1ec1n topup","description":"\\u0110\\u1ea1i l\\u00fd th\\u1ebb \\u0111i\\u1ec7n tho\\u1ea1i Viettel, Vinaphone, Mobifone, th\\u1ebb game online Pubg, zing, Vcoin, Gate, Carot, Garena, V\\u00f5 l\\u00e2m, li\\u00ean qu\\u00e2n mobile.","keyword":"th\\u1ebb \\u0111i\\u1ec7n tho\\u1ea1i Viettel, Vinaphone, Mobifone, th\\u1ebb game online Pubg, zing, Vcoin, Gate, Carot, Garena, V\\u00f5 l\\u00e2m, li\\u00ean qu\\u00e2n"}', '/storage/userfiles/images/a.jpg', 'vi', '2020-05-15 16:03:24', '2020-05-15 17:19:28'),
@@ -701,7 +742,7 @@ CREATE TABLE IF NOT EXISTS `settings` (
   UNIQUE KEY `key` (`key`)
 ) ENGINE=InnoDB AUTO_INCREMENT=68 DEFAULT CHARSET=utf8;
 
--- Dumping data for table bootphp.settings: ~26 rows (approximately)
+-- Dumping data for table bootphp.settings: ~27 rows (approximately)
 /*!40000 ALTER TABLE `settings` DISABLE KEYS */;
 INSERT INTO `settings` (`id`, `key`, `value`, `type`, `created_at`, `updated_at`) VALUES
 	(1, 'favicon', '/storage/userfiles/images/nencer-fav.png', 'primary', NULL, '2020-05-15 15:50:21'),
@@ -733,6 +774,24 @@ INSERT INTO `settings` (`id`, `key`, `value`, `type`, `created_at`, `updated_at`
 	(67, 'facebook_id', '123456 32435445', 'custom', '2022-05-07 08:30:47', '2022-05-07 08:33:31');
 /*!40000 ALTER TABLE `settings` ENABLE KEYS */;
 
+-- Dumping structure for table bootphp.shipments
+CREATE TABLE IF NOT EXISTS `shipments` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `name` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL COMMENT 'Name of ship',
+  `code` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `configs` text COLLATE utf8mb4_unicode_ci,
+  `fees` text COLLATE utf8mb4_unicode_ci,
+  `status` int(11) DEFAULT '1',
+  `sort` int(11) DEFAULT '1',
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- Dumping data for table bootphp.shipments: ~0 rows (approximately)
+/*!40000 ALTER TABLE `shipments` DISABLE KEYS */;
+/*!40000 ALTER TABLE `shipments` ENABLE KEYS */;
+
 -- Dumping structure for table bootphp.sliders
 CREATE TABLE IF NOT EXISTS `sliders` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
@@ -758,55 +817,78 @@ INSERT INTO `sliders` (`id`, `slider_name`, `slider_image`, `slider_text`, `slid
 	(8, 'Đổi thẻ cào', '/storage/userfiles/images/slider/doithecao.png', 'Nạp ƯU ĐÃI trả trước, trả sau Vinaphone, Mobifone, Viettel chiết khấu từ 15-20% sau 10 phút sẽ thành công (không có khuyến mãi).', NULL, 'Nạp ngay', NULL, 2, 0, 1, 'vi', '2018-10-19 18:36:17', '2022-03-15 15:40:15');
 /*!40000 ALTER TABLE `sliders` ENABLE KEYS */;
 
+-- Dumping structure for table bootphp.taxes
+CREATE TABLE IF NOT EXISTS `taxes` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `name` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `tax_percent` float NOT NULL DEFAULT '10',
+  `country_code` varchar(50) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `state_id` varchar(50) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- Dumping data for table bootphp.taxes: ~0 rows (approximately)
+/*!40000 ALTER TABLE `taxes` DISABLE KEYS */;
+/*!40000 ALTER TABLE `taxes` ENABLE KEYS */;
+
 -- Dumping structure for table bootphp.users
 CREATE TABLE IF NOT EXISTS `users` (
   `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
-  `name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `email` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `first_name` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `last_name` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `email` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `phone` varchar(50) COLLATE utf8_unicode_ci DEFAULT NULL,
   `email_verified_at` timestamp NULL DEFAULT NULL,
-  `password` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `remember_token` varchar(100) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `gender` varchar(8) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `avatar` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `password` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `remember_token` varchar(100) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `gender` varchar(8) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `avatar` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
   `group` int(11) DEFAULT NULL,
-  `tmp` varchar(250) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `tmp_token` varchar(250) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `tmp` varchar(250) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `tmp_token` varchar(250) COLLATE utf8_unicode_ci DEFAULT NULL,
   `parent_id` int(11) DEFAULT NULL,
-  `currency_code` varchar(50) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `language` varchar(100) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `twofactor` varchar(100) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `twofactor_secret` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `ref` varchar(100) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `credits` varchar(50) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `credits_enc` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `currency_code` varchar(50) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `language` varchar(100) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `twofactor` varchar(100) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `twofactor_secret` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `ref` varchar(100) COLLATE utf8_unicode_ci DEFAULT NULL,
   `status` int(11) DEFAULT '1',
   `birthday` date DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id`),
-  UNIQUE KEY `users_email_unique` (`email`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+  UNIQUE KEY `users_email_unique` (`email`),
+  UNIQUE KEY `phone` (`phone`)
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 -- Dumping data for table bootphp.users: ~3 rows (approximately)
 /*!40000 ALTER TABLE `users` DISABLE KEYS */;
-INSERT INTO `users` (`id`, `name`, `email`, `email_verified_at`, `password`, `remember_token`, `gender`, `avatar`, `group`, `tmp`, `tmp_token`, `parent_id`, `currency_code`, `language`, `twofactor`, `twofactor_secret`, `ref`, `status`, `birthday`, `created_at`, `updated_at`) VALUES
-	(1, 'God Admin', 'support@nencer.com', NULL, '$2y$10$fhFgzGTdBpUlCu.iH8F/4.t4KkZlOsIMdGQCdbrgFbgDQfDSG6EiW', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, '2020-02-29 17:07:49', '2020-02-29 17:07:49'),
-	(2, 'Nguyen Neo', 'hotronet@gmail.com', NULL, '$2y$10$7tonzQ.wyvrHuLDmuYRC/eE36.tgAB4Fy19m7iospMPSh7/0/FH0u', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, '2020-03-01 06:41:31', '2020-03-01 06:41:31'),
-	(3, 'kythuat', 'kythuat@gmail.com', NULL, '$2y$10$bQTnKqnE48oKWUsqv5GgAO5FFslbLm4yFiBL5er46b/IPYKnJZ0Ja', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, '2021-12-04 03:22:08', '2021-12-04 03:22:08');
+INSERT INTO `users` (`id`, `first_name`, `last_name`, `email`, `phone`, `email_verified_at`, `password`, `remember_token`, `gender`, `avatar`, `group`, `tmp`, `tmp_token`, `parent_id`, `credits`, `credits_enc`, `currency_code`, `language`, `twofactor`, `twofactor_secret`, `ref`, `status`, `birthday`, `created_at`, `updated_at`) VALUES
+	(1, '', '', 'support@nencer.com', NULL, NULL, '$2y$10$fhFgzGTdBpUlCu.iH8F/4.t4KkZlOsIMdGQCdbrgFbgDQfDSG6EiW', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, '2020-02-29 17:07:49', '2020-02-29 17:07:49'),
+	(2, '', '', 'hotronet@gmail.com', NULL, NULL, '$2y$10$7tonzQ.wyvrHuLDmuYRC/eE36.tgAB4Fy19m7iospMPSh7/0/FH0u', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, '2020-03-01 06:41:31', '2020-03-01 06:41:31'),
+	(3, '', '', 'kythuat@gmail.com', NULL, NULL, '$2y$10$bQTnKqnE48oKWUsqv5GgAO5FFslbLm4yFiBL5er46b/IPYKnJZ0Ja', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, '2021-12-04 03:22:08', '2021-12-04 03:22:08');
 /*!40000 ALTER TABLE `users` ENABLE KEYS */;
 
--- Dumping structure for table bootphp.user_credits
-CREATE TABLE IF NOT EXISTS `user_credits` (
+-- Dumping structure for table bootphp.user_address
+CREATE TABLE IF NOT EXISTS `user_address` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `user_id` int(11) DEFAULT NULL,
-  `credits` varchar(255) DEFAULT NULL,
-  `currency_code` varchar(255) DEFAULT 'USD',
+  `user_id` int(11) NOT NULL,
+  `address` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `state_id` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
+  `country_code` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
+  `primary` int(11) NOT NULL DEFAULT '0',
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
--- Dumping data for table bootphp.user_credits: ~0 rows (approximately)
-/*!40000 ALTER TABLE `user_credits` DISABLE KEYS */;
-/*!40000 ALTER TABLE `user_credits` ENABLE KEYS */;
+-- Dumping data for table bootphp.user_address: ~0 rows (approximately)
+/*!40000 ALTER TABLE `user_address` DISABLE KEYS */;
+/*!40000 ALTER TABLE `user_address` ENABLE KEYS */;
 
 -- Dumping structure for table bootphp.user_credit_logs
 CREATE TABLE IF NOT EXISTS `user_credit_logs` (
