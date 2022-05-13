@@ -13,9 +13,7 @@ class User extends Model
      */
     public $timestamps = false;
     protected $fillable = [
-        'name',
-        'detail',
+        'first_name', 'last_name', 'email', 'password', 'credits', 'gender', 'avatar', 'group', 'parent_id', 'credits_enc', 'currency_code', 'language', 'twofactor', 'twofactor_secret', 'ref', 'birthday', 'email_verified_at', 'phone',
     ];
-
 
 }
