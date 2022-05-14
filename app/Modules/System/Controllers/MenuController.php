@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Modules\Menu\Controllers;
+namespace App\Modules\System\Controllers;
 
 use App\Modules\Language\Models\Language;
 use Illuminate\Http\Request;
@@ -9,7 +9,7 @@ use App\Http\Controllers\Controller;
 use Auth;
 use View;
 use Validator;
-use App\Modules\Menu\Models\Menu;
+use App\Modules\System\Models\Menu;
 use App;
 use Cache;
 use Cookie;
@@ -35,7 +35,7 @@ class MenuController extends Controller
         }
         $menus = $menus->orderBy('parent_id', 'ASC')->orderBy('sort_order', 'ASC')->paginate(20);
         $langs = Language::where('installed', 1)->orderBy('sort', 'ASC')->get();
-        return view("Menu::index", compact('menus', 'form_title', 'langs'));
+        return view("System::menu.index", compact('menus', 'form_title', 'langs'));
     }
 
     public function create()
@@ -43,7 +43,7 @@ class MenuController extends Controller
         $langs = Language::where('installed', 1)->orderBy('sort', 'ASC')->get();
         $menuList = $this->getMenuListArray(0, 0);
         $selectHtml = $this->buildSelectParent($menuList, 0);
-        return view("Menu::create", compact('tree_html', 'langs', 'selectHtml'));
+        return view("System::menu.create", compact('tree_html', 'langs', 'selectHtml'));
     }
 
     public function store(Request $request)
@@ -77,7 +77,7 @@ class MenuController extends Controller
         $menuList = $this->getMenuListArray(0, $id);
         $selectHtml = $this->buildSelectParent($menuList, $menu->parent_id);
         $langs = Language::where('installed', 1)->orderBy('sort', 'ASC')->get();
-        return view("Menu::edit", compact('langs', 'selectHtml', 'menu', 'id'));
+        return view("System::menu.edit", compact('langs', 'selectHtml', 'menu', 'id'));
     }
 
     public function update(Request $request, $id)
@@ -183,7 +183,7 @@ class MenuController extends Controller
     {
         $html = '';
         $root_menu = Menu::where('parent_id', $parent_id)->orderBy('sort_order', 'ASC')->get();
-        $html .= view("Menu::menu_tree", compact('parent_id', 'root_menu', 'selected'))->render();
+        $html .= view("System::menu.menu_tree", compact('parent_id', 'root_menu', 'selected'))->render();
 
         return $html;
     }
@@ -268,9 +268,9 @@ class MenuController extends Controller
         $languages = Language::OrderBy('sort', 'ASC')->get();
         if ($id) {
             $menu = Menu::find($id);
-            $html .= view("Menu::menu_form", compact('id', 'menu', 'selectHtml', 'languages'))->render();
+            $html .= view("System::menu.menu_form", compact('id', 'menu', 'selectHtml', 'languages'))->render();
         } else {
-            $html .= view("Menu::menu_form", compact('id', 'selectHtml', 'languages'))->render();
+            $html .= view("System::menu.menu_form", compact('id', 'selectHtml', 'languages'))->render();
         }
         return $html;
     }

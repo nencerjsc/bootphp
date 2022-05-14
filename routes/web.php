@@ -14,6 +14,7 @@ Route::group(['module'=>'System', 'namespace' => '\App\Modules\System\Controller
         Route::resource('currencies','CurrencyController');
         Route::post('currencies/actions','CurrencyController@actions');
         Route::resource('seo','SeoController');
+        Route::resource('menu','MenuController');
     });
 
     //Frontend
@@ -106,13 +107,7 @@ Route::group(['module'=>'News', 'namespace' => '\App\Modules\News\Controllers'],
         Route::get('news/{category_slug}', ['as'=>'frontend.news_category.view', 'uses'=>'NewsFrontController@renderNewsCategory']);
     });
 });
-// menu
-Route::group(['module'=>'Menu', 'namespace' => '\App\Modules\Menu\Controllers'], function () use ($admin_prefix) {
-    //Backend
-    Route::group(['prefix'=>$admin_prefix, 'middleware' =>['auth','role:BACKEND']], function () {
-        Route::resource('menu','MenuController');
-    });
-});
+
 Route::group(['module'=>'Setting', 'namespace' => '\App\Modules\Setting\Controllers'], function () use ($admin_prefix) {
     //Backend
     Route::group(['prefix'=>$admin_prefix, 'middleware' =>['auth','role:BACKEND']], function () {
