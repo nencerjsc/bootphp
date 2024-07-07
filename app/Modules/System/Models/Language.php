@@ -1,13 +1,12 @@
 <?php
 
-namespace App\Modules\Language\Models;
+namespace App\Modules\System\Models;
 
 use Spatie\Permission\Traits\HasRoles;
 use Illuminate\Database\Eloquent\Model;
 
 class Language extends Model
 {
-    use HasRoles;
 
 
     /**

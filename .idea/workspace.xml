@@ -1,16 +1,49 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="BranchesTreeState">
+    <expand>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="GROUP_NODE:origin" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+    </expand>
+    <select />
+  </component>
   <component name="ChangeListManager">
     <list default="true" id="a73d12e2-e0d1-4c21-b027-4e10c52b72df" name="Default" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/laravel.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/laravel.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Auth/RegisterController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Auth/RegisterController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Modules/Language/Controllers/LanguageController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Modules/System/Controllers/LanguageController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Modules/Language/Models/Language.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Modules/System/Models/Language.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Modules/Language/Models/Translation.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Modules/Language/Views/createkey.blade.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Modules/Language/Views/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Modules/System/Views/language/index.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Modules/Language/Views/mod_menu.blade.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Modules/Language/Views/translate.blade.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Modules/Language/Views/update.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Modules/System/Views/language/update.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Modules/Setting/Controllers/SettingController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Modules/System/Controllers/SettingController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Modules/Setting/Models/Setting.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Modules/System/Models/Setting.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Modules/Setting/Views/create.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Modules/System/Views/setting/create.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Modules/Setting/Views/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Modules/System/Views/setting/index.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Modules/Setting/Views/timezone.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Modules/System/Views/setting/timezone.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Modules/System/Models/Menu.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Modules/System/Models/Menu.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Modules/System/Models/Seo.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Modules/System/Models/Seo.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Modules/System/Models/Sliders.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Modules/System/Models/Sliders.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Modules/User/Controllers/UserController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Modules/User/Controllers/UserController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Modules/User/Models/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Modules/User/Models/User.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/User.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/templates/default/auth/register.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/templates/default/auth/register.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/templates/default/layouts/app.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/templates/default/layouts/app.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/app.php" beforeDir="false" afterPath="$PROJECT_DIR$/config/app.php" afterDir="false" />
     </list>
-    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -18,15 +51,10 @@
   </component>
   <component name="ComposerSettings" doNotAsk="true" synchronizationState="SYNCHRONIZE">
     <pharConfigPath>$PROJECT_DIR$/composer.json</pharConfigPath>
-    <execution>
-      <executable />
-    </execution>
+    <execution />
   </component>
   <component name="CreatePatchCommitExecutor">
     <option name="PATCH_PATH" value="" />
-  </component>
-  <component name="FavoritesManager">
-    <favorites_list name="laravel" />
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -37,9 +65,6 @@
       <path value="$PROJECT_DIR$/vendor/monolog/monolog" />
       <path value="$PROJECT_DIR$/vendor/paragonie/random_compat" />
       <path value="$PROJECT_DIR$/vendor/fideloper/proxy" />
-      <path value="$PROJECT_DIR$/vendor/phpdocumentor/reflection-docblock" />
-      <path value="$PROJECT_DIR$/vendor/phpdocumentor/type-resolver" />
-      <path value="$PROJECT_DIR$/vendor/phpdocumentor/reflection-common" />
       <path value="$PROJECT_DIR$/vendor/psy/psysh" />
       <path value="$PROJECT_DIR$/vendor/myclabs/deep-copy" />
       <path value="$PROJECT_DIR$/vendor/sebastian/global-state" />
@@ -86,7 +111,6 @@
       <path value="$PROJECT_DIR$/vendor/phpunit/php-text-template" />
       <path value="$PROJECT_DIR$/vendor/symfony/css-selector" />
       <path value="$PROJECT_DIR$/vendor/symfony/error-handler" />
-      <path value="$PROJECT_DIR$/vendor/spatie/laravel-permission" />
       <path value="$PROJECT_DIR$/vendor/symfony/event-dispatcher" />
       <path value="$PROJECT_DIR$/vendor/egulias/email-validator" />
       <path value="$PROJECT_DIR$/vendor/symfony/polyfill-ctype" />
@@ -100,7 +124,6 @@
       <path value="$PROJECT_DIR$/vendor/symfony/var-dumper" />
       <path value="$PROJECT_DIR$/vendor/symfony/polyfill-intl-idn" />
       <path value="$PROJECT_DIR$/vendor/hamcrest/hamcrest-php" />
-      <path value="$PROJECT_DIR$/vendor/phpspec/prophecy" />
       <path value="$PROJECT_DIR$/vendor/symfony/polyfill-php72" />
       <path value="$PROJECT_DIR$/vendor/symfony/polyfill-php73" />
       <path value="$PROJECT_DIR$/vendor/dnoegel/php-xdg-base-dir" />
@@ -119,7 +142,6 @@
       <path value="$PROJECT_DIR$/vendor/theseer/tokenizer" />
       <path value="$PROJECT_DIR$/vendor/fzaninotto/faker" />
       <path value="$PROJECT_DIR$/vendor/nikic/php-parser" />
-      <path value="$PROJECT_DIR$/vendor/webmozart/assert" />
       <path value="$PROJECT_DIR$/vendor/facade/ignition-contracts" />
       <path value="$PROJECT_DIR$/vendor/facade/flare-client-php" />
       <path value="$PROJECT_DIR$/vendor/facade/ignition" />
@@ -139,23 +161,32 @@
       <path value="$PROJECT_DIR$/vendor/phpoffice/phpspreadsheet" />
       <path value="$PROJECT_DIR$/vendor/markbaker/matrix" />
       <path value="$PROJECT_DIR$/vendor/markbaker/complex" />
+      <path value="$PROJECT_DIR$/vendor/carbonphp/carbon-doctrine-types" />
+      <path value="$PROJECT_DIR$/vendor/psr/clock" />
     </include_path>
   </component>
-  <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="260" />
-    <option name="y" value="20" />
-    <option name="width" value="1400" />
-    <option name="height" value="1000" />
-  </component>
   <component name="ProjectId" id="21nd3NMkSufq9vipsM621wXL0Su" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
   <component name="PropertiesComponent">
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/app/Modules/System/Views/setting" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="settings.editor.selected.configurable" value="preferences.sourceCode" />
     <property name="settings.editor.splitter.proportion" value="0.2" />
   </component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\OSPanel\domains\bootphp\app\Modules\System\Views\setting" />
+      <recent name="D:\OSPanel\domains\bootphp\app\Modules\System\Views\language" />
+      <recent name="D:\OSPanel\domains\bootphp\app\Modules\System\Controllers" />
+      <recent name="D:\OSPanel\domains\bootphp\app\Modules\System\Models" />
+      <recent name="D:\OSPanel\domains\bootphp" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\OSPanel\domains\bootphp\app\Modules\System\Views\menu" />
       <recent name="C:\OSPanel\domains\bootphp\app\Modules\System\Models" />
@@ -163,25 +194,6 @@
       <recent name="C:\OSPanel\domains\bootphp\app\Modules\System\Views\seo" />
       <recent name="C:\OSPanel\domains\bootphp\app\Modules\User\Views\group" />
     </key>
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\OSPanel\domains\bootphp\app\Modules\System\Models" />
-      <recent name="C:\OSPanel\domains\bootphp\app\Modules\System\Controllers" />
-      <recent name="C:\OSPanel\domains\bootphp\app\Modules" />
-      <recent name="C:\WEBSITE\OpenServer\domains\bootphp\resources\views\templates" />
-      <recent name="C:\WEBSITE\OpenServer\domains\bootphp\resources\views\templates\default" />
-    </key>
-  </component>
-  <component name="RunDashboard">
-    <option name="ruleStates">
-      <list>
-        <RuleState>
-          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
-        </RuleState>
-        <RuleState>
-          <option name="name" value="StatusDashboardGroupingRule" />
-        </RuleState>
-      </list>
-    </option>
   </component>
   <component name="RunManager">
     <configuration name="phpunit.xml" type="PHPUnitRunConfigurationType" factoryName="PHPUnit">
@@ -240,6 +252,7 @@
       <workItem from="1652252696559" duration="8928000" />
       <workItem from="1652427634541" duration="3341000" />
       <workItem from="1652513012570" duration="5736000" />
+      <workItem from="1720331939433" duration="1570000" />
     </task>
     <servers />
   </component>
@@ -253,16 +266,17 @@
     </todo-panel>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
-    <option name="version" value="1" />
+    <option name="version" value="2" />
+  </component>
+  <component name="UnknownFeatures">
+    <option featureType="com.intellij.fileTypeFactory" implementationName="*.env" />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
     <option name="TAB_STATES">
       <map>
         <entry key="MAIN">
           <value>
-            <State>
-              <option name="COLUMN_ORDER" />
-            </State>
+            <State />
           </value>
         </entry>
       </map>
@@ -281,6 +295,7 @@
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="Vcs.Log.UiProperties">
     <option name="RECENTLY_FILTERED_USER_GROUPS">
@@ -289,6 +304,12 @@
     <option name="RECENTLY_FILTERED_BRANCH_GROUPS">
       <collection />
     </option>
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="727" y="322" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1720334102673">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="727" y="322" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1920.1040@0.0.1920.1040" timestamp="1720334102673" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

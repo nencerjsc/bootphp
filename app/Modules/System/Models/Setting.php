@@ -1,14 +1,12 @@
 <?php
 
-namespace App\Modules\Setting\Models;
+namespace App\Modules\System\Models;
 
 use Spatie\Permission\Traits\HasRoles;
 use Illuminate\Database\Eloquent\Model;
 
 class Setting extends Model
 {
-    use HasRoles;
-
 
     /**
      * The attributes that are mass assignable.

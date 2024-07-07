@@ -8,8 +8,6 @@ use Illuminate\Database\Eloquent\Model;
 
 class Seo extends Model
 {
-    use HasRoles;
-
 
     protected $table = 'seo';
     protected $fillable = [
