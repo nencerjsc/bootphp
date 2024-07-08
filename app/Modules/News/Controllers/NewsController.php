@@ -3,12 +3,10 @@
 namespace App\Modules\News\Controllers;
 
 use App\Http\Controllers\Controller;
-use App\Modules\Language\Models\Language;
+use App\Modules\System\Models\Language;
 use \App\Modules\News\Models\NewsCategory;
 use Illuminate\Http\Request;
-
 use Illuminate\Database\Eloquent\Model;
-use Spatie\Permission\Traits\HasRoles;
 use Auth;
 use View;
 use Image;

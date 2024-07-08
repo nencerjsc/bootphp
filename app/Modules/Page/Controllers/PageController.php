@@ -2,11 +2,9 @@
 
 namespace App\Modules\Page\Controllers;
 
-use App\Modules\Language\Models\Language;
+use App\Modules\System\Models\Language;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use Illuminate\Database\Eloquent\Model;
-use Spatie\Permission\Traits\HasRoles;
 use Auth;
 use View;
 use DB;
@@ -15,10 +13,6 @@ use App\Modules\Page\Models\Page;
 
 class PageController extends Controller
 {
-    public function __construct()
-    {
-    }
-
     public function index(Request $request)
     {
         $staticPage = Page::orderBy('id', 'DESC')->paginate(20);

@@ -3,15 +3,14 @@
 namespace App\Modules\System\Controllers;
 
 use App\Http\Controllers\Controller;
-use App\Modules\Language\Models\Language;
+use App\Modules\System\Models\Language;
 use Illuminate\Http\Request;
 use Illuminate\Database\Eloquent\Model;
-use Spatie\Permission\Traits\HasRoles;
 use Auth;
 use View;
 use File;
 use Cache;
-use App\Modules\Setting\Models\Setting;
+use App\Modules\System\Models\Setting;
 use Artisan;
 class SettingController extends Controller
 {

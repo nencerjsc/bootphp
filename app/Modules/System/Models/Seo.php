@@ -3,7 +3,6 @@
 namespace App\Modules\System\Models;
 
 use Cache;
-use Spatie\Permission\Traits\HasRoles;
 use Illuminate\Database\Eloquent\Model;
 
 class Seo extends Model

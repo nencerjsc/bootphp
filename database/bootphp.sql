@@ -444,6 +444,7 @@ CREATE TABLE IF NOT EXISTS `users` (
   `last_name` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
   `email` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `phone` varchar(50) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `is_admin` int(11) DEFAULT NULL,
   `email_verified_at` timestamp NULL DEFAULT NULL,
   `password` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `remember_token` varchar(100) COLLATE utf8_unicode_ci DEFAULT NULL,
@@ -470,10 +471,10 @@ CREATE TABLE IF NOT EXISTS `users` (
 ) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 -- Dumping data for table bootphp.users: ~3 rows (approximately)
-INSERT INTO `users` (`id`, `first_name`, `last_name`, `email`, `phone`, `email_verified_at`, `password`, `remember_token`, `gender`, `avatar`, `group`, `tmp`, `tmp_token`, `parent_id`, `credits`, `credits_enc`, `currency_code`, `language`, `twofactor`, `twofactor_secret`, `ref`, `status`, `birthday`, `created_at`, `updated_at`) VALUES
-	(1, '', '', 'support@nencer.com', NULL, NULL, '$2y$10$fhFgzGTdBpUlCu.iH8F/4.t4KkZlOsIMdGQCdbrgFbgDQfDSG6EiW', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, '2020-02-29 14:07:49', '2020-02-29 14:07:49'),
-	(2, '', '', 'hotronet@gmail.com', NULL, NULL, '$2y$10$7tonzQ.wyvrHuLDmuYRC/eE36.tgAB4Fy19m7iospMPSh7/0/FH0u', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, '2020-03-01 03:41:31', '2020-03-01 03:41:31'),
-	(3, '', '', 'kythuat@gmail.com', NULL, NULL, '$2y$10$bQTnKqnE48oKWUsqv5GgAO5FFslbLm4yFiBL5er46b/IPYKnJZ0Ja', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, '2021-12-04 00:22:08', '2021-12-04 00:22:08');
+INSERT INTO `users` (`id`, `first_name`, `last_name`, `email`, `phone`, `is_admin`, `email_verified_at`, `password`, `remember_token`, `gender`, `avatar`, `group`, `tmp`, `tmp_token`, `parent_id`, `credits`, `credits_enc`, `currency_code`, `language`, `twofactor`, `twofactor_secret`, `ref`, `status`, `birthday`, `created_at`, `updated_at`) VALUES
+	(1, 'Nguyen', 'Nghia', 'support@nencer.com', NULL, 1, NULL, '$2y$10$fhFgzGTdBpUlCu.iH8F/4.t4KkZlOsIMdGQCdbrgFbgDQfDSG6EiW', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, '2020-02-29 14:07:49', '2020-02-29 14:07:49'),
+	(2, '', '', 'hotronet@gmail.com', NULL, NULL, NULL, '$2y$10$7tonzQ.wyvrHuLDmuYRC/eE36.tgAB4Fy19m7iospMPSh7/0/FH0u', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, '2020-03-01 03:41:31', '2020-03-01 03:41:31'),
+	(3, '', '', 'kythuat@gmail.com', NULL, NULL, NULL, '$2y$10$bQTnKqnE48oKWUsqv5GgAO5FFslbLm4yFiBL5er46b/IPYKnJZ0Ja', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, '2021-12-04 00:22:08', '2021-12-04 00:22:08');
 
 -- Dumping structure for table bootphp.user_address
 CREATE TABLE IF NOT EXISTS `user_address` (

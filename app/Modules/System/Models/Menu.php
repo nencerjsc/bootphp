@@ -2,17 +2,11 @@
 
 namespace App\Modules\System\Models;
 
-use Spatie\Permission\Traits\HasRoles;
 use Illuminate\Database\Eloquent\Model;
 
 class Menu extends Model
 {
 
-    /**
-     * The attributes that are mass assignable.
-     *
-     * @var array
-     */
     protected $table = 'menu';
     protected $fillable = [
     	// 'id',

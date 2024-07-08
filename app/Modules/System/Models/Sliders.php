@@ -1,16 +1,10 @@
 <?php
 namespace App\Modules\System\Models;
 
-use Spatie\Permission\Traits\HasRoles;
 use Illuminate\Database\Eloquent\Model;
 
 class Sliders extends Model {
 
-  /**
-   * The attributes that are mass assignable.
-   *
-   * @var array
-   */
   protected $table = 'sliders';
   protected $fillable = [
           'slider_name',
