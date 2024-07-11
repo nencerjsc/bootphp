@@ -14,11 +14,11 @@ use App;
 use Cache;
 use Cookie;
 
-class MenuController extends Controller
+class MenuController extends BackendController
 {
     public function __construct()
     {
-
+        parent::__construct();
     }
 
     public function index(Request $request)

@@ -4,14 +4,14 @@ namespace App\Modules\Page\Controllers;
 use Illuminate\Http\Request;
 use Session;
 use App;
-use App\Http\Controllers\Controller;
+use App\Modules\System\Controllers\FrontendController;
 use App\Modules\Page\Models\Page;
 
-class PageFrontController extends Controller{
+class PageFrontController extends FrontendController {
 
     public function __construct(){
+        parent::__construct();
 	}
-
 
 	public function viewpage(Request $request){
 

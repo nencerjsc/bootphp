@@ -2,23 +2,22 @@
 
 namespace App\Modules\System\Controllers;
 
-use App\Http\Controllers\Controller;
 use App\Modules\System\Models\Language;
+use App\Modules\System\Models\Setting;
 use Illuminate\Http\Request;
-use Illuminate\Database\Eloquent\Model;
 use Auth;
 use View;
 use File;
 use Cache;
-use App\Modules\System\Models\Setting;
+
 use Artisan;
-class SettingController extends Controller
+class SettingController extends BackendController
 {
 
     public $mod_menu;
-
     public function __construct()
     {
+        parent::__construct();
     }
     public function index(){
         $title = "Setting general";

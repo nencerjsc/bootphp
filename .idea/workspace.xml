@@ -20,26 +20,43 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a73d12e2-e0d1-4c21-b027-4e10c52b72df" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/app/Http/Middleware/IsAdmin.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Modules/News/routes.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Modules/Page/routes.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Modules/System/routes.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Modules/User/routes.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Modules/Ztest/routes.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Kernel.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Kernel.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Modules/Helpers.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Helpers.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Modules/News/Controllers/NewsCatController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Modules/News/Controllers/NewsCatController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Modules/News/Controllers/NewsController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Modules/News/Controllers/NewsController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Modules/News/Models/News.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Modules/News/Models/News.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Modules/News/Models/NewsCategory.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Modules/News/Models/NewsCategory.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Modules/Page/Controllers/PageController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Modules/Page/Controllers/PageController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Modules/Page/Models/Page.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Modules/Page/Models/Page.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Modules/Page/Controllers/PageFrontController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Modules/Page/Controllers/PageFrontController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Modules/ServiceProvider.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Modules/ServiceProvider.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Modules/System/Controllers/BackendController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Modules/System/Controllers/BackendController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Modules/System/Controllers/CurrencyController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Modules/System/Controllers/CurrencyController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Modules/System/Controllers/LanguageController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Modules/System/Controllers/LanguageController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Modules/System/Controllers/SeoController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Modules/System/Controllers/SeoController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Modules/System/Controllers/MenuController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Modules/System/Controllers/MenuController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Modules/System/Controllers/PermissionController.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Modules/System/Controllers/RoleController.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Modules/System/Controllers/SeoController.php" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Modules/System/Controllers/SettingController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Modules/System/Controllers/SettingController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Modules/System/Models/Language.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Modules/System/Models/Language.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Modules/System/Models/Menu.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Modules/System/Models/Menu.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Modules/System/Models/Seo.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Modules/System/Models/Seo.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Modules/System/Models/Setting.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Modules/System/Models/Setting.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Modules/System/Models/Sliders.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Modules/System/Models/Sliders.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Modules/System/Controllers/SlidersController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Modules/System/Controllers/SlidersController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Modules/System/Views/backend/partials/header.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Modules/System/Views/backend/partials/header.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Modules/System/Views/backend/partials/sidebar.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Modules/System/Views/backend/partials/sidebar.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/User.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/bootphp.sql" beforeDir="false" afterPath="$PROJECT_DIR$/database/bootphp.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Modules/System/Views/permissions/create.blade.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Modules/System/Views/permissions/edit.blade.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Modules/System/Views/permissions/index.blade.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Modules/System/Views/roles/create.blade.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Modules/System/Views/roles/edit.blade.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Modules/System/Views/roles/index.blade.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Modules/System/Views/seo/create.blade.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Modules/System/Views/seo/edit.blade.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Modules/System/Views/seo/index.blade.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Modules/User/Controllers/GroupControler.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Modules/User/Controllers/GroupControler.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Modules/User/Controllers/UserController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Modules/User/Controllers/UserController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Modules/Ztest/Controllers/ZtestFrontController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Modules/Ztest/Controllers/ZtestFrontController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -172,25 +189,25 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/app/Http/Middleware" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/app/Modules/Page" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="settings.editor.selected.configurable" value="preferences.sourceCode" />
     <property name="settings.editor.splitter.proportion" value="0.2" />
   </component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="E:\PHP\OSPanel\domains\bootphp\app\Modules\Page" />
+      <recent name="E:\PHP\OSPanel\domains\bootphp\app\Modules\News" />
+      <recent name="E:\PHP\OSPanel\domains\bootphp\app\Modules\User" />
+      <recent name="E:\PHP\OSPanel\domains\bootphp" />
+      <recent name="D:\OSPanel\domains\bootphp\app\Http\Middleware" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="E:\PHP\OSPanel\domains\bootphp\app\Modules\Ztest" />
+      <recent name="E:\PHP\OSPanel\domains\bootphp\app" />
       <recent name="C:\OSPanel\domains\bootphp\app\Modules\System\Views\menu" />
       <recent name="C:\OSPanel\domains\bootphp\app\Modules\System\Models" />
       <recent name="C:\OSPanel\domains\bootphp\app\Modules\System\Controllers" />
-      <recent name="C:\OSPanel\domains\bootphp\app\Modules\System\Views\seo" />
-      <recent name="C:\OSPanel\domains\bootphp\app\Modules\User\Views\group" />
-    </key>
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="D:\OSPanel\domains\bootphp\app\Http\Middleware" />
-      <recent name="D:\OSPanel\domains\bootphp\app\Modules\System\Views\setting" />
-      <recent name="D:\OSPanel\domains\bootphp\app\Modules\System\Views\language" />
-      <recent name="D:\OSPanel\domains\bootphp\app\Modules\System\Controllers" />
-      <recent name="D:\OSPanel\domains\bootphp\app\Modules\System\Models" />
     </key>
   </component>
   <component name="RunManager">
@@ -252,6 +269,7 @@
       <workItem from="1652513012570" duration="5736000" />
       <workItem from="1720331939433" duration="1790000" />
       <workItem from="1720409015629" duration="5512000" />
+      <workItem from="1720707636228" duration="3860000" />
     </task>
     <servers />
   </component>
@@ -309,14 +327,18 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="727" y="322" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1920.1040@0.0.1920.1040" timestamp="1720334102673" />
-    <state x="740" y="275" key="FileChooserDialogImpl" timestamp="1720426022900">
+    <state x="740" y="275" key="FileChooserDialogImpl" timestamp="1720708384412">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="740" y="275" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1720426022900" />
-    <state x="667" y="255" width="585" height="530" key="find.popup" timestamp="1720427399614">
+    <state x="740" y="275" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1720708384412" />
+    <state x="724" y="243" key="NewPhpClassDialog" timestamp="1720708984174">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="667" y="255" width="585" height="530" key="find.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1720427399614" />
+    <state x="724" y="243" key="NewPhpClassDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1720708984174" />
+    <state x="667" y="255" width="585" height="530" key="find.popup" timestamp="1720709631651">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="667" y="255" width="585" height="530" key="find.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1720709631651" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -335,11 +357,6 @@
           <url>file://$PROJECT_DIR$/app/Modules/User/Views/create.blade.php</url>
           <line>22</line>
           <option name="timeStamp" value="3" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="php">
-          <url>file://$PROJECT_DIR$/app/Modules/System/Views/backend/partials/sidebar.blade.php</url>
-          <line>63</line>
-          <option name="timeStamp" value="5" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="php">
           <url>file://$PROJECT_DIR$/app/Modules/Page/Views/edit.blade.php</url>

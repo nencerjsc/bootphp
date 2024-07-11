@@ -14,18 +14,18 @@ class ServiceProvider extends  \Illuminate\Support\ServiceProvider{
             $this->_registerModule($moduleName);
         }
 
-        if(file_exists(__DIR__.'/Helpers.php')) {
-            include __DIR__.'/Helpers.php';
-        }
-
         Blade::directive('theme_include', function ($string_params){
             $html = '{!! theme_include('.$string_params.') !!}';
             return $html;
         });
+
     }
 
     private function _registerModule($moduleName) {
         $modulePath = __DIR__ . "/$moduleName/";
+        if(file_exists(__DIR__.'/'.$moduleName.'/routes.php')) {
+            include __DIR__.'/'.$moduleName.'/routes.php';
+        }
 
         // boot migration
         if (File::exists($modulePath . "Migrations")) {

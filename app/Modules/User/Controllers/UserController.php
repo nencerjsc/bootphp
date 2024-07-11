@@ -1,14 +1,19 @@
 <?php
 namespace App\Modules\User\Controllers;
 
+use App\Modules\System\Controllers\BackendController;
 use Illuminate\Http\Request;
-use App\Http\Controllers\Controller;
 use App\User;
 use DB;
 use Hash;
 
-class UserController extends Controller
+class UserController extends BackendController
 {
+
+    public function __construct()
+    {
+        parent::__construct();
+    }
 
     public function index(Request $request)
     {

@@ -6,18 +6,20 @@ namespace App\Modules\News\Controllers;
 
 use App\Http\Controllers\Controller;
 use App\Modules\Language\Models\Language;
+use App\Modules\System\Controllers\BackendController;
 use Illuminate\Http\Request;
 use App\Modules\News\Models\NewsCategory;
 use View;
 use Validator;
 use Auth;
 
-class NewsCatController extends Controller
+class NewsCatController extends BackendController
 {
     public function __construct()
     {
-
+        parent::__construct();
     }
+
 
     public function index(Request $request)
     {

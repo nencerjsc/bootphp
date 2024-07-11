@@ -1,16 +1,19 @@
 <?php
 namespace App\Modules\User\Controllers;
 
+use App\Modules\System\Controllers\BackendController;
 use App\Modules\User\Models\Group;
 use Illuminate\Http\Request;
-use App\Http\Controllers\Controller;
-use App\User;
-use Spatie\Permission\Models\Role;
 use DB;
 use Hash;
 
-class GroupControler extends Controller
+class GroupControler extends BackendController
 {
+
+    public function __construct()
+    {
+        parent::__construct();
+    }
 
     public function index(){
         $groups = Group::all();

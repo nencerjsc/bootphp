@@ -2,16 +2,20 @@
 
 namespace App\Modules\System\Controllers;
 
-use App\Http\Controllers\Controller;
-use App\Modules\Language\Models\Language;
+use App\Modules\System\Models\Language;
+use App\Modules\System\Models\Sliders;
 use Illuminate\Http\Request;
 use Auth;
 use View;
-use App\Modules\System\Models\Sliders;
 use Storage;
 
-class SlidersController extends Controller
+class SlidersController extends BackendController
 {
+    public function __construct()
+    {
+        parent::__construct();
+    }
+
     public function index(Request $request)
     {
         $sliders = Sliders::orderBy('id', 'DESC')->paginate(10);

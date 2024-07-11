@@ -2,17 +2,22 @@
 
 namespace App\Modules\Page\Controllers;
 
+use App\Modules\System\Controllers\BackendController;
 use App\Modules\System\Models\Language;
 use Illuminate\Http\Request;
-use App\Http\Controllers\Controller;
 use Auth;
 use View;
 use DB;
 use App\Modules\Page\Models\Page;
 
 
-class PageController extends Controller
+class PageController extends BackendController
 {
+    public function __construct()
+    {
+        parent::__construct();
+    }
+
     public function index(Request $request)
     {
         $staticPage = Page::orderBy('id', 'DESC')->paginate(20);

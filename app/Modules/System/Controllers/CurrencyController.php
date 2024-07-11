@@ -7,19 +7,14 @@ use Illuminate\Http\Request;
 use App\Modules\System\Models\Currencies;
 use DB;
 
-class CurrencyController extends Controller
+class CurrencyController extends BackendController
 {
 
     public function __construct()
     {
-
+        parent::__construct();
     }
 
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function index(Request $request)
     {
         $title = 'Currency';
@@ -32,12 +27,6 @@ class CurrencyController extends Controller
         return view('System::currency.index', compact('currencies', 'title'));
     }
 
-
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function create()
     {
         $currencyList = DB::table('currencies_code')->get();
@@ -74,25 +63,6 @@ class CurrencyController extends Controller
 
     }
 
-
-    /**
-     * Display the specified resource.
-     *
-     * @param int $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
-    {
-
-    }
-
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param int $id
-     * @return \Illuminate\Http\Response
-     */
     public function edit($id)
     {
         if (allow('edit') === true) {
@@ -138,13 +108,6 @@ class CurrencyController extends Controller
             ->with('success', 'Cập nhật tiền tệ thành công');
     }
 
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param int $id
-     * @return \Illuminate\Http\Response
-     */
     public function destroy($id)
     {
 

@@ -3,6 +3,7 @@
 namespace App\Modules\News\Controllers;
 
 use App\Http\Controllers\Controller;
+use App\Modules\System\Controllers\BackendController;
 use App\Modules\System\Models\Language;
 use \App\Modules\News\Models\NewsCategory;
 use Illuminate\Http\Request;
@@ -13,10 +14,11 @@ use Image;
 use DB;
 use App\Modules\News\Models\News;
 use Illuminate\Support\Str;
-class NewsController extends Controller
+class NewsController extends BackendController
 {
     public function __construct()
     {
+        parent::__construct();
     }
 
     public function index(Request $request)

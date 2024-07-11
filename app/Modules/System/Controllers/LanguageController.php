@@ -2,7 +2,6 @@
 
 namespace App\Modules\System\Controllers;
 
-use App\Http\Controllers\Controller;
 use App\Modules\System\Helpers\BackendHelper;
 use App\Modules\System\Models\Language;
 use Illuminate\Http\Request;
@@ -13,11 +12,12 @@ use Cache;
 use Lang;
 use Artisan;
 
-class LanguageController extends Controller
+class LanguageController extends BackendController
 {
     public $mod_menu;
     public function __construct()
     {
+        parent::__construct();
         $this->mod_menu = view('Language::mod_menu')->render();
     }
     public function index()
